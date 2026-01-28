@@ -1,103 +1,92 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 
-const DownloadIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-    <path fillRule="evenodd" d="M12 2.25a.75.75 0 01.75.75v11.69l3.22-3.22a.75.75 0 111.06 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-4.5-4.5a.75.75 0 111.06-1.06l3.22 3.22V3a.75.75 0 01.75-.75zm-9 13.5a.75.75 0 01.75.75v2.25a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5V16.5a.75.75 0 011.5 0v2.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V16.5a.75.75 0 01.75-.75z" clipRule="evenodd" />
+const colors = {
+  olive: '#5C6B4A',
+  warmBrown: '#C9A67A',
+  nearBlack: '#1C1917',
+  cream: '#FAF7F2',
+  creamAlt: '#F5F0E8',
+};
+
+const ArrowIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 rotate-180">
+    <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
   </svg>
 );
 
-const BackIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 rotate-180">
-    <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+const DownloadIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+    <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z" />
+    <path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z" />
   </svg>
 );
 
 export default function LegalMemoPage() {
   return (
-    <main className="min-h-screen bg-beige-pink flex flex-col">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-beige-pink/95 backdrop-blur-sm z-50 border-b border-pink-accent/20">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="font-serif text-xl text-deep-brown tracking-wide">
-            Melisa Onder
-          </Link>
-          <div className="flex items-center gap-6">
-            <Link href="/#about" className="text-deep-brown hover:text-pink-accent transition-colors text-sm tracking-wide">
-              About
-            </Link>
-            <Link href="/#education" className="text-deep-brown hover:text-pink-accent transition-colors text-sm tracking-wide">
-              Education
-            </Link>
-            <Link href="/#experience" className="text-deep-brown hover:text-pink-accent transition-colors text-sm tracking-wide">
-              Experience
-            </Link>
-            <Link href="/writing" className="text-pink-accent text-sm tracking-wide font-medium">
-              Writing
-            </Link>
-          </div>
-        </div>
-      </nav>
+    <>
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@200;300;400;500&display=swap');
+        .font-serif-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+        .font-sans-light { font-family: 'Libre Franklin', system-ui, sans-serif; }
+      `}</style>
 
-      {/* Header */}
-      <section className="pt-32 pb-8 px-6">
-        <div className="max-w-5xl mx-auto">
-          <Link
-            href="/writing"
-            className="inline-flex items-center gap-2 text-deep-brown/70 hover:text-deep-brown transition-colors mb-6"
-          >
-            <BackIcon />
-            <span className="text-sm">Back to Writing</span>
-          </Link>
-
-          <div className="bg-warm-white p-6 md:p-8 rounded-lg border-l-4 border-pink-accent">
-            <h1 className="font-serif text-2xl md:text-3xl text-deep-brown mb-3 tracking-wide">
-              Legal Memorandum: R v. Ndhlovu
-            </h1>
-            <div className="flex flex-wrap gap-4 text-sm mb-4">
-              <span className="text-olive-green font-medium">PO209 - Legal Writing</span>
-              <span className="text-deep-brown/50">|</span>
-              <span className="text-deep-brown/70">December 2024</span>
+      <main className="min-h-screen font-sans-light flex flex-col" style={{ backgroundColor: colors.cream, color: colors.nearBlack }}>
+        <nav className="fixed top-0 left-0 right-0 z-50 py-5" style={{ backgroundColor: `${colors.cream}f0`, backdropFilter: 'blur(12px)' }}>
+          <div className="max-w-6xl mx-auto px-8">
+            <div className="flex justify-between items-center">
+              <Link href="/" className="font-serif-display text-2xl tracking-wide hover:opacity-60 transition-opacity">Melisa Onder</Link>
+              <div className="hidden md:flex items-center gap-10">
+                <Link href="/#about" className="text-sm font-light hover:opacity-60 transition-opacity">About</Link>
+                <Link href="/#experience" className="text-sm font-light hover:opacity-60 transition-opacity">Experience</Link>
+                <Link href="/writing" className="text-sm font-light" style={{ color: colors.olive }}>Writing</Link>
+              </div>
             </div>
-            <p className="text-deep-brown/70 leading-relaxed mb-6">
-              Constitutional analysis of mandatory sex offender registration under SOIRA, examining whether sections 490.012 and 490.013(2.1) of the Criminal Code violate Section 7 of the Charter.
+          </div>
+        </nav>
+
+        <section className="pt-28 pb-8 px-8">
+          <div className="max-w-6xl mx-auto">
+            <Link href="/writing" className="inline-flex items-center gap-2 mb-8 text-sm font-light hover:gap-3 transition-all" style={{ color: colors.olive }}>
+              <ArrowIcon />
+              Back to Writing
+            </Link>
+
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+              <div>
+                <p className="text-xs tracking-[0.3em] uppercase font-light mb-3" style={{ color: colors.warmBrown }}>Legal Writing</p>
+                <h1 className="font-serif-display text-3xl lg:text-4xl font-light mb-4">Legal Memorandum: R v. Ndhlovu</h1>
+                <p className="text-sm font-light" style={{ color: colors.olive }}>PO209 · December 2024</p>
+              </div>
+              <a href="/papers/legal-memo.pdf" download className="inline-flex items-center gap-3 px-6 py-3 text-sm font-light tracking-wide transition-all hover:gap-4" style={{ backgroundColor: colors.olive, color: colors.cream }}>
+                <DownloadIcon />
+                Download PDF
+              </a>
+            </div>
+
+            <p className="text-base font-light leading-relaxed max-w-3xl" style={{ opacity: 0.75 }}>
+              Constitutional analysis examining whether mandatory sex offender registration under SOIRA violates Section 7 of the Charter. Analyzes sections 490.012 and 490.013(2.1) of the Criminal Code.
             </p>
-            <a
-              href="/papers/legal-memo.pdf"
-              download
-              className="inline-flex items-center gap-2 px-4 py-2 bg-pink-accent text-white rounded-md hover:bg-pink-accent/80 transition-colors"
-            >
-              <DownloadIcon />
-              <span>Download PDF</span>
-            </a>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* PDF Viewer */}
-      <section className="flex-1 px-6 pb-8">
-        <div className="max-w-5xl mx-auto h-full">
-          <div className="bg-warm-white rounded-lg overflow-hidden shadow-lg h-[70vh] min-h-[500px]">
-            <iframe
-              src="/papers/legal-memo.pdf"
-              className="w-full h-full border-0"
-              title="Legal Memorandum: R v. Ndhlovu"
-            />
+        <section className="flex-1 px-8 pb-12">
+          <div className="max-w-6xl mx-auto h-full">
+            <div className="rounded-sm overflow-hidden h-[75vh] min-h-[600px]" style={{ backgroundColor: colors.creamAlt, boxShadow: `0 4px 20px ${colors.nearBlack}10` }}>
+              <iframe src="/papers/legal-memo.pdf#toolbar=1&navpanes=0&view=FitH" className="w-full h-full border-0" title="Legal Memorandum: R v. Ndhlovu" />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="py-8 px-6 bg-deep-brown text-ivory mt-auto">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-serif text-sm">
-            Melisa Onder
-          </p>
-          <Link href="/writing" className="text-ivory/70 hover:text-ivory transition-colors text-sm">
-            Back to Writing
-          </Link>
-        </div>
-      </footer>
-    </main>
+        <footer className="py-10 px-8 mt-auto" style={{ backgroundColor: colors.nearBlack, color: colors.cream }}>
+          <div className="max-w-6xl mx-auto flex justify-between items-center">
+            <p className="font-serif-display text-lg font-light">Melisa Onder</p>
+            <Link href="/writing" className="text-sm font-light opacity-60 hover:opacity-100 transition-opacity">Back to Writing</Link>
+          </div>
+        </footer>
+      </main>
+    </>
   );
 }
