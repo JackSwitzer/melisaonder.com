@@ -54,10 +54,10 @@ const experiences = [
 ];
 
 const writingSamples = [
-  { title: 'Appellant Factum: R v. Ndhlovu', type: 'Legal Writing' },
-  { title: 'Legal Memorandum: R v. Ndhlovu', type: 'Legal Writing' },
-  { title: 'The Hidden Story Behind Our Food', type: 'Op-Ed' },
-  { title: 'Child Marriage in India', type: 'Policy Briefing' },
+  { title: 'Appellant Factum: R v. Ndhlovu', type: 'Legal Writing', href: '/writing/appellant-factum' },
+  { title: 'Legal Memorandum: R v. Ndhlovu', type: 'Legal Writing', href: '/writing/legal-memo' },
+  { title: 'The Hidden Story Behind Our Food', type: 'Op-Ed', href: '/writing/op-ed' },
+  { title: 'Child Marriage in India', type: 'Policy Briefing', href: '/writing/policy-briefing' },
 ];
 
 export default function HomePage() {
@@ -298,24 +298,16 @@ export default function HomePage() {
               <div className="lg:col-span-4">
                 <p className="text-xs tracking-[0.25em] uppercase font-light mb-3" style={{ color: colors.olive }}>04</p>
                 <h2 className="font-serif-display text-4xl font-light mb-6" style={{ color: colors.nearBlack }}>Writing</h2>
-                <p className="text-base leading-relaxed font-light mb-6" style={{ opacity: 0.7 }}>
+                <p className="text-base leading-relaxed font-light" style={{ opacity: 0.7 }}>
                   Selected academic writing samples demonstrating analytical and research capabilities.
                 </p>
-                <Link
-                  href="/writing"
-                  className="inline-flex items-center gap-2 text-sm font-light hover:gap-3 transition-all group"
-                  style={{ color: colors.olive }}
-                >
-                  View All Writing
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
               </div>
               <div className="lg:col-span-8">
                 <div className="space-y-3">
                   {writingSamples.map((sample, index) => (
                     <Link
                       key={index}
-                      href="/writing"
+                      href={sample.href}
                       className="group block p-5 transition-colors"
                       style={{ backgroundColor: colors.creamAlt }}
                     >
