@@ -37,27 +37,27 @@ const experiences = [
     title: "Marketing Assistant & Business Developer",
     company: "Fittz Commercial Interiors",
     period: "Sept 2023 - Aug 2025",
-    description: "Designed promotional marketing materials and coordinated company events. Managed social media presence to enhance brand engagement.",
+    description: "TODO: Mel",
   },
   {
     title: "Social Media & Events Executive",
     company: "CSA WLU",
     period: "Sept 2024 - Present",
-    description: "Events Executive handling venue selection and budget management. Social Media Executive creating content and managing platform presence.",
+    description: "TODO: Mel",
   },
   {
     title: "Customer Care Representative",
     company: "Arctic Glacier",
     period: "May 2021 - Aug 2023",
-    description: "Managed bilingual (French/English) customer support. Utilized CRM software for account management and case resolution.",
+    description: "TODO: Mel",
   },
 ];
 
 const writingSamples = [
-  { title: 'Appellant Factum: R v. Ndhlovu', type: 'Legal Writing', href: '/writing/appellant-factum' },
-  { title: 'Legal Memorandum: R v. Ndhlovu', type: 'Legal Writing', href: '/writing/legal-memo' },
-  { title: 'The Hidden Story Behind Our Food', type: 'Op-Ed', href: '/writing/op-ed' },
-  { title: 'Child Marriage in India', type: 'Policy Briefing', href: '/writing/policy-briefing' },
+  { title: 'Appellant Factum: R v. Ndhlovu', type: 'Legal Writing', href: '/papers/appellant-factum.pdf' },
+  { title: 'Legal Memorandum: R v. Ndhlovu', type: 'Legal Writing', href: '/papers/legal-memo.pdf' },
+  { title: 'The Hidden Story Behind Our Food', type: 'Op-Ed', href: '/papers/op-ed-factory-farming.pdf' },
+  { title: 'Child Marriage in India', type: 'Policy Briefing', href: '/papers/policy-briefing-child-marriage.pdf' },
 ];
 
 export default function HomePage() {
@@ -94,7 +94,7 @@ export default function HomePage() {
                 Melisa Onder
               </Link>
               <div className="hidden md:flex items-center gap-10">
-                {['About', 'Education', 'Experience', 'Writing'].map((item) => (
+                {['About', 'Education', 'Experience', 'Projects'].map((item) => (
                   <Link
                     key={item}
                     href={`#${item.toLowerCase()}`}
@@ -104,13 +104,13 @@ export default function HomePage() {
                   </Link>
                 ))}
               </div>
-              <Link
+              <a
                 href="mailto:melisaonder09@gmail.com"
                 className="flex items-center gap-2 text-sm font-light hover:opacity-60 transition-opacity"
                 style={{ color: colors.olive }}
               >
                 <MailIcon />
-              </Link>
+              </a>
             </div>
           </div>
         </nav>
@@ -121,7 +121,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Left content */}
               <div className="order-2 lg:order-1">
-                <p className="text-sm tracking-[0.25em] uppercase mb-6 font-light" style={{ color: colors.olive }}>
+                <p className="text-sm tracking-[0.25em] uppercase mb-6 font-light" style={{ color: colors.softPink }}>
                   Political Science & Legal Studies
                 </p>
 
@@ -129,14 +129,14 @@ export default function HomePage() {
                   <span className="font-serif-display text-6xl md:text-7xl font-light block" style={{ color: colors.nearBlack }}>
                     Melisa
                   </span>
-                  <span className="font-serif-display text-6xl md:text-7xl italic font-light block" style={{ color: colors.olive }}>
+                  <span className="font-serif-display text-6xl md:text-7xl italic font-light block" style={{ color: colors.softPink }}>
                     Onder
                   </span>
                 </h1>
 
                 <p className="mb-4">
-                  <Link
-                    href="https://www.wlu.ca/programs/arts/undergraduate/law-and-society-ba/index.html"
+                  <a
+                    href="https://www.wlu.ca"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-base font-light hover:opacity-70 transition-opacity group"
@@ -144,33 +144,33 @@ export default function HomePage() {
                   >
                     Wilfrid Laurier University
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Link>
+                  </a>
                 </p>
 
                 <p className="text-lg leading-relaxed font-light mb-10" style={{ opacity: 0.75 }}>
-                  Final-year BA Political Science, Legal Studies Specialization.
+                  Final-year BA Political Science, <a href="https://academic-calendar.wlu.ca/program.php?cal=1&d=3094&p=7042&s=1151&y=92" target="_blank" rel="noopener noreferrer" style={{ color: colors.plum }}>Legal Studies Specialization</a>.
                   Preparing for LSAT. Trilingual: English, French, Turkish.
                 </p>
 
                 <div className="flex items-center gap-4">
-                  <Link
+                  <a
                     href="mailto:melisaonder09@gmail.com"
                     className="flex items-center gap-3 px-6 py-3 text-sm font-light tracking-wide hover:opacity-80 transition-opacity"
-                    style={{ backgroundColor: colors.olive, color: colors.cream }}
+                    style={{ backgroundColor: colors.softPink, color: colors.nearBlack }}
                   >
                     <MailIcon />
                     Email
-                  </Link>
-                  <Link
+                  </a>
+                  <a
                     href="https://www.linkedin.com/in/melisa-onder-7b6ba7302/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 px-6 py-3 text-sm font-light tracking-wide hover:opacity-80 transition-opacity"
-                    style={{ border: `1px solid ${colors.olive}`, color: colors.olive }}
+                    style={{ border: `1px solid ${colors.softPink}`, color: colors.softPink }}
                   >
                     <LinkedInIcon />
                     LinkedIn
-                  </Link>
+                  </a>
                 </div>
               </div>
 
@@ -202,11 +202,8 @@ export default function HomePage() {
                 <h2 className="font-serif-display text-4xl font-light" style={{ color: colors.nearBlack }}>About</h2>
               </div>
               <div className="lg:col-span-8">
-                <p className="font-serif-display text-2xl font-light leading-relaxed mb-6" style={{ color: colors.nearBlack }}>
-                  I am a detail-oriented professional with experience in project management, event coordination, and client relations.
-                </p>
-                <p className="text-base leading-relaxed font-light mb-10" style={{ opacity: 0.7 }}>
-                  My background spans marketing, customer service, and hospitality, where I have consistently demonstrated adaptability in fast-paced environments. With professional experience in CRM software, content creation, and remote work, I bring a blend of technical proficiency and interpersonal skills to every role.
+                <p className="text-base leading-relaxed font-light italic mb-10" style={{ opacity: 0.7 }}>
+                  TODO: Mel
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {['English', 'French', 'Turkish'].map((lang) => (
@@ -236,8 +233,8 @@ export default function HomePage() {
                 <div className="p-8" style={{ backgroundColor: colors.creamAlt }}>
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
                     <div>
-                      <Link
-                        href="https://www.wlu.ca/programs/arts/undergraduate/law-and-society-ba/index.html"
+                      <a
+                        href="https://www.wlu.ca"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group"
@@ -246,14 +243,17 @@ export default function HomePage() {
                           Wilfrid Laurier University
                           <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </h3>
-                      </Link>
+                      </a>
                       <p className="text-lg font-light" style={{ color: colors.nearBlack }}>Bachelor of Arts in Political Science</p>
-                      <p className="font-serif-display italic text-lg" style={{ color: colors.olive }}>Legal Studies Specialization</p>
+                      <a href="https://academic-calendar.wlu.ca/program.php?cal=1&d=3094&p=7042&s=1151&y=92" target="_blank" rel="noopener noreferrer">
+                        <p className="font-serif-display italic text-lg hover:opacity-70 transition-opacity" style={{ color: colors.plum }}>Legal Studies Specialization</p>
+                      </a>
                     </div>
                     <p className="text-sm font-light" style={{ color: colors.warmBrown }}>Sept 2022 - April 2026</p>
                   </div>
-                  <p className="text-base leading-relaxed font-light" style={{ opacity: 0.7 }}>
-                    Currently preparing for the LSAT. Coursework includes legal writing, constitutional law, poverty & inequality policy, and political theory.
+                  {/* TODO: Add grad photo */}
+                  <p className="text-base leading-relaxed font-light italic" style={{ opacity: 0.7 }}>
+                    TODO: Mel
                   </p>
                 </div>
               </div>
@@ -291,23 +291,24 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Writing Section */}
-        <section id="writing" className="py-24 px-8" style={{ backgroundColor: colors.cream }}>
+        {/* Projects Section */}
+        <section id="projects" className="py-24 px-8" style={{ backgroundColor: colors.cream }}>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
               <div className="lg:col-span-4">
                 <p className="text-xs tracking-[0.25em] uppercase font-light mb-3" style={{ color: colors.olive }}>04</p>
-                <h2 className="font-serif-display text-4xl font-light mb-6" style={{ color: colors.nearBlack }}>Writing</h2>
-                <p className="text-base leading-relaxed font-light" style={{ opacity: 0.7 }}>
-                  Selected academic writing samples demonstrating analytical and research capabilities.
-                </p>
+                <h2 className="font-serif-display text-4xl font-light mb-6" style={{ color: colors.nearBlack }}>Projects</h2>
               </div>
               <div className="lg:col-span-8">
-                <div className="space-y-3">
+                {/* Writing */}
+                <h3 className="font-serif-display text-xl font-light mb-4" style={{ color: colors.nearBlack }}>Writing</h3>
+                <div className="space-y-3 mb-8">
                   {writingSamples.map((sample, index) => (
-                    <Link
+                    <a
                       key={index}
                       href={sample.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="group block p-5 transition-colors"
                       style={{ backgroundColor: colors.creamAlt }}
                     >
@@ -318,8 +319,24 @@ export default function HomePage() {
                         </div>
                         <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.olive }} />
                       </div>
-                    </Link>
+                    </a>
                   ))}
+                </div>
+
+                {/* Other Projects */}
+                <h3 className="font-serif-display text-xl font-light mb-4" style={{ color: colors.nearBlack }}>Other</h3>
+                <div className="space-y-3">
+                  <div
+                    className="p-5"
+                    style={{ backgroundColor: colors.creamAlt }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="font-serif-display text-lg font-light mb-1" style={{ color: colors.nearBlack }}>Outfit Board</h4>
+                        <p className="text-sm font-light italic" style={{ opacity: 0.5 }}>Coming soon</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -335,7 +352,7 @@ export default function HomePage() {
                 <p className="text-sm font-light" style={{ color: colors.cream, opacity: 0.5 }}>Political Science & Legal Studies</p>
               </div>
               <div className="flex items-center gap-6">
-                <Link
+                <a
                   href="https://www.linkedin.com/in/melisa-onder-7b6ba7302/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -343,10 +360,10 @@ export default function HomePage() {
                   style={{ color: colors.cream }}
                 >
                   <LinkedInIcon />
-                </Link>
-                <Link href="mailto:melisaonder09@gmail.com" className="hover:opacity-60 transition-opacity" style={{ color: colors.cream }}>
+                </a>
+                <a href="mailto:melisaonder09@gmail.com" className="hover:opacity-60 transition-opacity" style={{ color: colors.cream }}>
                   <MailIcon />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
