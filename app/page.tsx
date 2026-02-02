@@ -10,8 +10,8 @@ const colors = {
   plum: '#C4A0D4',
   warmBrown: '#C9A67A',
   nearBlack: '#FAF7F2',
-  cream: '#2C2420',
-  creamAlt: '#3A3530',
+  cream: '#3B1A1A',
+  creamAlt: '#4A2828',
 };
 
 const ArrowUpRight = ({ className = "w-4 h-4", style }: { className?: string; style?: React.CSSProperties }) => (
