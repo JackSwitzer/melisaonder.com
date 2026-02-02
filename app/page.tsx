@@ -7,11 +7,11 @@ import Link from 'next/link';
 const colors = {
   olive: '#8A9B7A',
   softPink: '#E8C4C4',
-  plum: '#C4A0D4',
+  plum: '#B88CC4',
   warmBrown: '#C9A67A',
   nearBlack: '#FAF7F2',
-  cream: '#3B1A1A',
-  creamAlt: '#4A2828',
+  cream: '#3C1610',
+  creamAlt: '#4E2218',
 };
 
 const ArrowUpRight = ({ className = "w-4 h-4", style }: { className?: string; style?: React.CSSProperties }) => (
@@ -34,18 +34,18 @@ const MailIcon = () => (
 
 const experiences = [
   {
-    title: "Events & Social Media Executive",
-    company: "CSA WLU",
-    companyUrl: "https://students.wlu.ca/programs/arts/communication-studies/get-involved.html",
-    period: "Sept 2024 - Present",
-    description: "Events Executive (Sept 2025–Present): Planned and coordinated events by selecting venues, managing budgets, organizing materials, and ensuring smooth execution. Social Media Executive (Sept 2024–May 2025): Created and posted visually appealing content across social media platforms, maintaining a consistent posting schedule to maximize engagement and build a digital presence.",
-  },
-  {
     title: "Marketing Assistant & Business Developer",
     company: "Fittz Commercial Interiors",
     companyUrl: "https://fittz.ca/",
     period: "Sept 2023 - Aug 2025",
     description: "Business development and marketing at a commercial furniture dealership specializing in interior design and workspace solutions. Engaged in company promotion through outreach calls and industry events, building client relationships and supporting sales initiatives. Designed promotional marketing materials for various product launches and events.",
+  },
+  {
+    title: "Events & Social Media Executive",
+    company: "CSA WLU",
+    companyUrl: "https://students.wlu.ca/programs/arts/communication-studies/get-involved.html",
+    period: "Sept 2024 - Present",
+    description: "Events Executive (Sept 2025–Present): Planned and coordinated events by selecting venues, managing budgets, organizing materials, and ensuring smooth execution. Social Media Executive (Sept 2024–May 2025): Created and posted visually appealing content across social media platforms, maintaining a consistent posting schedule to maximize engagement and build a digital presence.",
   },
   {
     title: "Hostess",
@@ -255,29 +255,29 @@ export default function HomePage() {
                 </div>
 
                 {/* Princeton LSAT */}
-                <div className="p-8 mt-3" style={{ backgroundColor: colors.creamAlt }}>
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                <div className="p-6 mt-3" style={{ backgroundColor: colors.creamAlt }}>
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2">
                     <div>
-                      <h3 className="font-serif-display text-2xl font-light mb-2" style={{ color: colors.nearBlack }}>
+                      <h3 className="font-serif-display text-xl font-light mb-1" style={{ color: colors.nearBlack }}>
                         Princeton Review LSAT Prep Course
                       </h3>
-                      <p className="text-lg font-light" style={{ color: colors.nearBlack }}>LSAT Preparation</p>
+                      <p className="text-sm font-light" style={{ color: colors.warmBrown }}>LSAT Preparation</p>
                     </div>
                     <p className="text-sm font-light" style={{ color: colors.warmBrown }}>June 2025 - Aug 2025</p>
                   </div>
                 </div>
 
                 {/* Richview */}
-                <div className="p-8 mt-3" style={{ backgroundColor: colors.creamAlt }}>
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
+                <div className="p-6 mt-3" style={{ backgroundColor: colors.creamAlt }}>
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-2">
                     <div>
-                      <h3 className="font-serif-display text-2xl font-light mb-2" style={{ color: colors.nearBlack }}>
+                      <h3 className="font-serif-display text-xl font-light mb-1" style={{ color: colors.nearBlack }}>
                         Richview Collegiate Institute
                       </h3>
-                      <p className="text-lg font-light" style={{ color: colors.nearBlack }}>Summa Cum Laude Honours (Grade 11 & 12)</p>
+                      <p className="text-sm font-light" style={{ color: colors.warmBrown }}>Summa Cum Laude Honours (Grade 11 & 12)</p>
                     </div>
                   </div>
-                  <p className="text-base leading-relaxed font-light italic" style={{ opacity: 0.7 }}>
+                  <p className="text-sm leading-relaxed font-light italic" style={{ opacity: 0.6 }}>
                     Debate Society, Leadership Club, Athletic Council, and Interact Club.
                   </p>
                 </div>
