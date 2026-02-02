@@ -5,13 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const colors = {
-  olive: '#5C6B4A',
+  olive: '#8A9B7A',
   softPink: '#E8C4C4',
-  plum: '#6B4C7A',
+  plum: '#C4A0D4',
   warmBrown: '#C9A67A',
-  nearBlack: '#1C1917',
-  cream: '#FAF7F2',
-  creamAlt: '#F5F0E8',
+  nearBlack: '#FAF7F2',
+  cream: '#2C2420',
+  creamAlt: '#3A3530',
 };
 
 const ArrowUpRight = ({ className = "w-4 h-4", style }: { className?: string; style?: React.CSSProperties }) => (
@@ -86,7 +86,7 @@ export default function HomePage() {
         .font-serif-display { font-family: 'Cormorant Garamond', Georgia, serif; }
         .font-sans-light { font-family: 'Libre Franklin', system-ui, sans-serif; }
         html { scroll-behavior: smooth; }
-        ::selection { background: ${colors.softPink}; color: ${colors.nearBlack}; }
+        ::selection { background: ${colors.softPink}; color: ${colors.cream}; }
       `}</style>
 
       <main className="min-h-screen font-sans-light antialiased" style={{ backgroundColor: colors.cream, color: colors.nearBlack }}>
@@ -117,7 +117,7 @@ export default function HomePage() {
               <a
                 href="mailto:melisaonder09@gmail.com"
                 className="flex items-center gap-2 text-sm font-light hover:opacity-60 transition-opacity p-2 -m-2"
-                style={{ color: colors.olive }}
+                style={{ color: colors.softPink }}
               >
                 <MailIcon />
               </a>
@@ -126,17 +126,17 @@ export default function HomePage() {
         </nav>
 
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center pt-24 pb-16 px-8">
+        <section className="min-h-screen flex items-center pt-24 pb-8 px-8">
           <div className="max-w-6xl mx-auto w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Left content */}
               <div className="order-2 lg:order-1">
-                <p className="text-sm tracking-[0.25em] uppercase mb-6 font-light" style={{ color: colors.softPink }}>
-                  Political Science & Legal Studies
+                <p className="text-sm tracking-[0.25em] uppercase mb-6 font-light" style={{ color: colors.warmBrown }}>
+                  <a href="https://www.wlu.ca" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">Political Science & Legal Studies</a>
                 </p>
 
-                <h1 className="mb-8">
-                  <span className="font-serif-display text-6xl md:text-7xl font-light block" style={{ color: colors.nearBlack }}>
+                <h1 className="mb-10">
+                  <span className="font-serif-display text-6xl md:text-7xl font-light block" style={{ color: colors.softPink }}>
                     Melisa
                   </span>
                   <span className="font-serif-display text-6xl md:text-7xl italic font-light block" style={{ color: colors.softPink }}>
@@ -144,30 +144,11 @@ export default function HomePage() {
                   </span>
                 </h1>
 
-                <p className="mb-4">
-                  <a
-                    href="https://www.wlu.ca"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-base font-light hover:opacity-70 transition-opacity group"
-                    style={{ color: colors.plum }}
-                  >
-                    Wilfrid Laurier University
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </a>
-                </p>
-
-                <div className="text-lg leading-relaxed font-light mb-10 space-y-1" style={{ opacity: 0.75 }}>
-                  <p>Final-year BA Political Science, <a href="https://academic-calendar.wlu.ca/program.php?cal=1&d=3094&p=7042&s=1151&y=92" target="_blank" rel="noopener noreferrer" style={{ color: colors.plum }}>Legal Studies Specialization</a>.</p>
-                  <p>Preparing for LSAT.</p>
-                  <p>Trilingual: English, French, Turkish.</p>
-                </div>
-
                 <div className="flex items-center gap-4">
                   <a
                     href="mailto:melisaonder09@gmail.com"
                     className="flex items-center gap-3 px-6 py-3 text-sm font-light tracking-wide hover:opacity-80 transition-opacity"
-                    style={{ backgroundColor: colors.softPink, color: colors.nearBlack }}
+                    style={{ backgroundColor: colors.softPink, color: colors.cream }}
                   >
                     <MailIcon />
                     Email
@@ -187,14 +168,15 @@ export default function HomePage() {
 
               {/* Right - Profile Image */}
               <div className="order-1 lg:order-2">
-                <div className="max-w-sm mx-auto lg:ml-auto lg:mr-0">
-                  <div className="aspect-[3/4] overflow-hidden" style={{ boxShadow: `0 8px 40px ${colors.nearBlack}15` }}>
+                <div className="max-w-[230px] mx-auto lg:ml-auto lg:mr-0">
+                  <div className="aspect-[3/4] overflow-hidden" style={{ boxShadow: `0 8px 40px #00000030` }}>
                     <Image
                       src="/profile.jpeg"
                       alt="Melisa Onder"
                       width={400}
                       height={533}
-                      className="object-cover object-top w-full h-full"
+                      className="object-cover w-full h-full scale-110"
+                      style={{ objectPosition: 'center 15%' }}
                       priority
                     />
                   </div>
@@ -205,7 +187,7 @@ export default function HomePage() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-16 px-8" style={{ backgroundColor: colors.cream }}>
+        <section id="about" className="pt-10 pb-16 px-8" style={{ backgroundColor: colors.cream }}>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
               <div className="lg:col-span-4">
@@ -213,6 +195,9 @@ export default function HomePage() {
                 <h2 className="font-serif-display text-4xl font-light" style={{ color: colors.nearBlack }}>About</h2>
               </div>
               <div className="lg:col-span-8">
+                <p className="text-base leading-relaxed font-light mb-4" style={{ color: colors.warmBrown }}>
+                  Final-year BA Political Science, <a href="https://academic-calendar.wlu.ca/program.php?cal=1&d=3094&p=7042&s=1151&y=92" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity" style={{ color: colors.plum }}>Legal Studies Specialization</a>. Preparing for LSAT.
+                </p>
                 <p className="text-base leading-relaxed font-light italic mb-6" style={{ opacity: 0.7 }}>
                   Working across legal analysis, sales, marketing, and events. Drawn to problems that need solving and work that spans disciplines. Passionate about building authentic, valuable connections and preparing for the LSAT while building cross-functional skills.
                 </p>
@@ -222,7 +207,7 @@ export default function HomePage() {
                     <span
                       key={lang}
                       className="px-4 py-2 text-sm font-light"
-                      style={{ backgroundColor: colors.softPink + '40', color: colors.nearBlack }}
+                      style={{ backgroundColor: colors.softPink + '20', color: colors.softPink }}
                     >
                       {lang}
                     </span>
@@ -389,7 +374,7 @@ export default function HomePage() {
                           <h4 className="font-serif-display text-lg font-light mb-1" style={{ color: colors.nearBlack }}>{sample.title}</h4>
                           <p className="text-sm font-light" style={{ color: colors.warmBrown }}>{sample.type}{sample.course && ` · ${sample.course}`}</p>
                         </div>
-                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.olive }} />
+                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.softPink }} />
                       </div>
                     </a>
                   ))}
@@ -410,7 +395,7 @@ export default function HomePage() {
                         <h4 className="font-serif-display text-lg font-light mb-1" style={{ color: colors.nearBlack }}>Laurier Rec Dance</h4>
                         <p className="text-sm font-light" style={{ color: colors.warmBrown }}>Dance</p>
                       </div>
-                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.olive }} />
+                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.softPink }} />
                     </div>
                   </a>
                   <div className="p-5" style={{ backgroundColor: colors.creamAlt }}>
@@ -438,12 +423,12 @@ export default function HomePage() {
         </section>
 
         {/* Footer */}
-        <footer className="py-10 px-8" style={{ backgroundColor: colors.nearBlack }}>
+        <footer className="py-10 px-8" style={{ backgroundColor: colors.creamAlt }}>
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="text-center md:text-left">
-                <p className="font-serif-display text-xl font-light" style={{ color: colors.cream }}>Melisa Onder</p>
-                <p className="text-sm font-light" style={{ color: colors.cream, opacity: 0.5 }}>Political Science & Legal Studies</p>
+                <p className="font-serif-display text-xl font-light" style={{ color: colors.softPink }}>Melisa Onder</p>
+                <p className="text-sm font-light" style={{ color: colors.nearBlack, opacity: 0.5 }}>Political Science & Legal Studies</p>
               </div>
               <div className="flex items-center gap-6">
                 <a
@@ -451,11 +436,11 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-60 transition-opacity"
-                  style={{ color: colors.cream }}
+                  style={{ color: colors.nearBlack }}
                 >
                   <LinkedInIcon />
                 </a>
-                <a href="mailto:melisaonder09@gmail.com" className="hover:opacity-60 transition-opacity" style={{ color: colors.cream }}>
+                <a href="mailto:melisaonder09@gmail.com" className="hover:opacity-60 transition-opacity" style={{ color: colors.nearBlack }}>
                   <MailIcon />
                 </a>
               </div>
