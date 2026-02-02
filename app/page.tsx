@@ -213,8 +213,9 @@ export default function HomePage() {
               </div>
               <div className="lg:col-span-8">
                 <p className="text-base leading-relaxed font-light italic mb-6" style={{ opacity: 0.7 }}>
-                  Working across legal analysis, sales, marketing, and events. Trilingual in English, French, and Turkish. Drawn to problems that need solving and work that spans disciplines. Passionate about building authentic, valuable connections and preparing for the LSAT while building cross-functional skills.
+                  Working across legal analysis, sales, marketing, and events. Drawn to problems that need solving and work that spans disciplines. Passionate about building authentic, valuable connections and preparing for the LSAT while building cross-functional skills.
                 </p>
+                <p className="text-sm font-light tracking-wide uppercase mb-3" style={{ color: colors.warmBrown }}>Languages</p>
                 <div className="flex flex-wrap gap-3">
                   {['English', 'French', 'Turkish'].map((lang) => (
                     <span
@@ -276,7 +277,7 @@ export default function HomePage() {
                       </h3>
                       <p className="text-lg font-light" style={{ color: colors.nearBlack }}>LSAT Preparation</p>
                     </div>
-                    <p className="text-sm font-light" style={{ color: colors.warmBrown }}>June 2024 - Aug 2024</p>
+                    <p className="text-sm font-light" style={{ color: colors.warmBrown }}>June 2025 - Aug 2025</p>
                   </div>
                 </div>
 
