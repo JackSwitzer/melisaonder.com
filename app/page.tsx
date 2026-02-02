@@ -157,10 +157,11 @@ export default function HomePage() {
                   </a>
                 </p>
 
-                <p className="text-lg leading-relaxed font-light mb-10" style={{ opacity: 0.75 }}>
-                  Final-year BA Political Science, <a href="https://academic-calendar.wlu.ca/program.php?cal=1&d=3094&p=7042&s=1151&y=92" target="_blank" rel="noopener noreferrer" style={{ color: colors.plum }}>Legal Studies Specialization</a>.
-                  Preparing for LSAT. Trilingual: English, French, Turkish.
-                </p>
+                <div className="text-lg leading-relaxed font-light mb-10 space-y-1" style={{ opacity: 0.75 }}>
+                  <p>Final-year BA Political Science, <a href="https://academic-calendar.wlu.ca/program.php?cal=1&d=3094&p=7042&s=1151&y=92" target="_blank" rel="noopener noreferrer" style={{ color: colors.plum }}>Legal Studies Specialization</a>.</p>
+                  <p>Preparing for LSAT.</p>
+                  <p>Trilingual: English, French, Turkish.</p>
+                </div>
 
                 <div className="flex items-center gap-4">
                   <a
