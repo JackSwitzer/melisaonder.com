@@ -34,30 +34,40 @@ const MailIcon = () => (
 
 const experiences = [
   {
-    title: "Marketing Assistant & Business Developer",
-    company: "Fittz Commercial Interiors",
-    period: "Sept 2023 - Aug 2025",
-    description: "TODO: Mel",
+    title: "Events & Social Media Executive",
+    company: "CSA WLU",
+    companyUrl: "https://students.wlu.ca/programs/arts/communication-studies/get-involved.html",
+    period: "Sept 2024 - Present",
+    description: "Events Executive (Sept 2025–Present): Planned and coordinated events by selecting venues, managing budgets, organizing materials, and ensuring smooth execution. Social Media Executive (Sept 2024–May 2025): Created and posted visually appealing content across social media platforms, maintaining a consistent posting schedule to maximize engagement and build a digital presence.",
   },
   {
-    title: "Social Media & Events Executive",
-    company: "CSA WLU",
-    period: "Sept 2024 - Present",
-    description: "TODO: Mel",
+    title: "Marketing Assistant & Business Developer",
+    company: "Fittz Commercial Interiors",
+    companyUrl: "https://fittz.ca/",
+    period: "Sept 2023 - Aug 2025",
+    description: "Business development and marketing at a commercial furniture dealership specializing in interior design and workspace solutions. Engaged in company promotion through outreach calls and industry events, building client relationships and supporting sales initiatives. Designed promotional marketing materials for various product launches and events.",
+  },
+  {
+    title: "Hostess",
+    company: "La Vecchia",
+    companyUrl: "https://lavecchia.ca/lakeshore/",
+    period: "May 2024 - Aug 2024",
+    description: "Greeted guests with professionalism and warmth, managed table turnover, and coordinated seating for large groups. Maintained efficiency during peak hours by balancing customer needs with managerial expectations. Demonstrated adaptability in a fast-paced, high-volume environment.",
   },
   {
     title: "Customer Care Representative",
     company: "Arctic Glacier",
+    companyUrl: "https://arcticglacier.com/about-us/",
     period: "May 2021 - Aug 2023",
-    description: "TODO: Mel",
+    description: "Managed high-volume inbound call flow from both French and English speaking customers. Utilized CRM software to manage customer accounts, process orders, and resolve cases. Handled up to 100 calls per hour, logging customer information with accuracy and professionalism.",
   },
 ];
 
 const writingSamples = [
   { title: 'Appellant Factum: R v. Ndhlovu', type: 'Legal Writing', href: '/papers/appellant-factum.pdf' },
   { title: 'Legal Memorandum: R v. Ndhlovu', type: 'Legal Writing', href: '/papers/legal-memo.pdf' },
-  { title: 'The Hidden Story Behind Our Food', type: 'Op-Ed', href: '/papers/op-ed-factory-farming.pdf' },
-  { title: 'Child Marriage in India', type: 'Policy Briefing', href: '/papers/policy-briefing-child-marriage.pdf' },
+  { title: 'The Hidden Story Behind Our Food', type: 'Op-Ed', course: 'Canadian Environmental Policy', href: '/papers/op-ed-factory-farming.pdf' },
+  { title: 'Child Marriage in India', type: 'Policy Briefing', course: 'Poverty & Inequality in the Global South', href: '/papers/policy-briefing-child-marriage.pdf' },
 ];
 
 export default function HomePage() {
@@ -106,7 +116,7 @@ export default function HomePage() {
               </div>
               <a
                 href="mailto:melisaonder09@gmail.com"
-                className="flex items-center gap-2 text-sm font-light hover:opacity-60 transition-opacity"
+                className="flex items-center gap-2 text-sm font-light hover:opacity-60 transition-opacity p-2 -m-2"
                 style={{ color: colors.olive }}
               >
                 <MailIcon />
@@ -194,7 +204,7 @@ export default function HomePage() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-24 px-8" style={{ backgroundColor: colors.cream }}>
+        <section id="about" className="py-16 px-8" style={{ backgroundColor: colors.cream }}>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
               <div className="lg:col-span-4">
@@ -202,8 +212,8 @@ export default function HomePage() {
                 <h2 className="font-serif-display text-4xl font-light" style={{ color: colors.nearBlack }}>About</h2>
               </div>
               <div className="lg:col-span-8">
-                <p className="text-base leading-relaxed font-light italic mb-10" style={{ opacity: 0.7 }}>
-                  TODO: Mel
+                <p className="text-base leading-relaxed font-light italic mb-6" style={{ opacity: 0.7 }}>
+                  Working across legal analysis, sales, marketing, and events. Trilingual in English, French, and Turkish. Drawn to problems that need solving and work that spans disciplines. Passionate about building authentic, valuable connections and preparing for the LSAT while building cross-functional skills.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {['English', 'French', 'Turkish'].map((lang) => (
@@ -222,11 +232,11 @@ export default function HomePage() {
         </section>
 
         {/* Education Section */}
-        <section id="education" className="py-24 px-8" style={{ backgroundColor: colors.cream }}>
+        <section id="education" className="py-16 px-8" style={{ backgroundColor: colors.cream }}>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
               <div className="lg:col-span-4">
-                <p className="text-xs tracking-[0.25em] uppercase font-light mb-3" style={{ color: colors.olive }}>02</p>
+                <p className="text-xs tracking-[0.25em] uppercase font-light mb-3" style={{ color: colors.softPink }}>02</p>
                 <h2 className="font-serif-display text-4xl font-light" style={{ color: colors.nearBlack }}>Education</h2>
               </div>
               <div className="lg:col-span-8">
@@ -253,7 +263,35 @@ export default function HomePage() {
                   </div>
                   {/* TODO: Add grad photo */}
                   <p className="text-base leading-relaxed font-light italic" style={{ opacity: 0.7 }}>
-                    TODO: Mel
+                    Strong academic foundation in Legal Studies and Political Science, with coursework examining Canadian law, justice systems, and legal analysis. Experienced in reading, summarizing, and extracting key information from legal cases and academic materials, demonstrating attention to detail and analytical precision. GPA: 10.5/12.
+                  </p>
+                </div>
+
+                {/* Princeton LSAT */}
+                <div className="p-8 mt-3" style={{ backgroundColor: colors.creamAlt }}>
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                    <div>
+                      <h3 className="font-serif-display text-2xl font-light mb-2" style={{ color: colors.nearBlack }}>
+                        Princeton Review LSAT Prep Course
+                      </h3>
+                      <p className="text-lg font-light" style={{ color: colors.nearBlack }}>LSAT Preparation</p>
+                    </div>
+                    <p className="text-sm font-light" style={{ color: colors.warmBrown }}>June 2024 - Aug 2024</p>
+                  </div>
+                </div>
+
+                {/* Richview */}
+                <div className="p-8 mt-3" style={{ backgroundColor: colors.creamAlt }}>
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
+                    <div>
+                      <h3 className="font-serif-display text-2xl font-light mb-2" style={{ color: colors.nearBlack }}>
+                        Richview Collegiate Institute
+                      </h3>
+                      <p className="text-lg font-light" style={{ color: colors.nearBlack }}>Summa Cum Laude Honours (Grade 11 & 12)</p>
+                    </div>
+                  </div>
+                  <p className="text-base leading-relaxed font-light italic" style={{ opacity: 0.7 }}>
+                    Debate Society, Leadership Club, Athletic Council, and Interact Club.
                   </p>
                 </div>
               </div>
@@ -262,15 +300,15 @@ export default function HomePage() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="py-24 px-8" style={{ backgroundColor: colors.cream }}>
+        <section id="experience" className="py-16 px-8" style={{ backgroundColor: colors.cream }}>
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-8">
               <div className="lg:col-span-4">
-                <p className="text-xs tracking-[0.25em] uppercase font-light mb-3" style={{ color: colors.warmBrown }}>03</p>
+                <p className="text-xs tracking-[0.25em] uppercase font-light mb-3" style={{ color: colors.softPink }}>03</p>
                 <h2 className="font-serif-display text-4xl font-light" style={{ color: colors.nearBlack }}>Experience</h2>
               </div>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-4">
               {experiences.map((exp, index) => (
                 <div
                   key={index}
@@ -279,7 +317,14 @@ export default function HomePage() {
                 >
                   <div className="lg:col-span-4">
                     <p className="text-sm font-light mb-1" style={{ color: colors.warmBrown }}>{exp.period}</p>
-                    <p className="text-sm font-light" style={{ opacity: 0.6 }}>{exp.company}</p>
+                    {exp.companyUrl ? (
+                      <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-light hover:opacity-70 transition-opacity inline-flex items-center gap-1 group" style={{ color: colors.plum }}>
+                        {exp.company}
+                        <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </a>
+                    ) : (
+                      <p className="text-sm font-light" style={{ opacity: 0.6 }}>{exp.company}</p>
+                    )}
                   </div>
                   <div className="lg:col-span-8">
                     <h3 className="font-serif-display text-xl font-light mb-3" style={{ color: colors.nearBlack }}>{exp.title}</h3>
@@ -288,15 +333,40 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+
+            {/* Volunteer Experience */}
+            <div className="mt-10">
+              <h3 className="font-serif-display text-2xl font-light mb-4" style={{ color: colors.nearBlack }}>Volunteer</h3>
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6" style={{ backgroundColor: colors.creamAlt }}>
+                  <div className="lg:col-span-4">
+                    <p className="text-sm font-light" style={{ color: colors.warmBrown }}>Volunteer</p>
+                  </div>
+                  <div className="lg:col-span-8">
+                    <h3 className="font-serif-display text-xl font-light mb-1" style={{ color: colors.nearBlack }}>CPSC</h3>
+                    <p className="text-sm font-light italic" style={{ opacity: 0.5 }}>Details coming soon</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6" style={{ backgroundColor: colors.creamAlt }}>
+                  <div className="lg:col-span-4">
+                    <p className="text-sm font-light" style={{ color: colors.warmBrown }}>Volunteer</p>
+                  </div>
+                  <div className="lg:col-span-8">
+                    <h3 className="font-serif-display text-xl font-light mb-1" style={{ color: colors.nearBlack }}>Habitat for Humanity</h3>
+                    <p className="text-sm font-light italic" style={{ opacity: 0.5 }}>Details coming soon</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-24 px-8" style={{ backgroundColor: colors.cream }}>
+        <section id="projects" className="py-16 px-8" style={{ backgroundColor: colors.cream }}>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
               <div className="lg:col-span-4">
-                <p className="text-xs tracking-[0.25em] uppercase font-light mb-3" style={{ color: colors.olive }}>04</p>
+                <p className="text-xs tracking-[0.25em] uppercase font-light mb-3" style={{ color: colors.softPink }}>04</p>
                 <h2 className="font-serif-display text-4xl font-light mb-6" style={{ color: colors.nearBlack }}>Projects</h2>
               </div>
               <div className="lg:col-span-8">
@@ -315,7 +385,7 @@ export default function HomePage() {
                       <div className="flex items-center justify-between">
                         <div>
                           <h4 className="font-serif-display text-lg font-light mb-1" style={{ color: colors.nearBlack }}>{sample.title}</h4>
-                          <p className="text-sm font-light" style={{ color: colors.warmBrown }}>{sample.type}</p>
+                          <p className="text-sm font-light" style={{ color: colors.warmBrown }}>{sample.type}{sample.course && ` · ${sample.course}`}</p>
                         </div>
                         <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.olive }} />
                       </div>
@@ -324,17 +394,39 @@ export default function HomePage() {
                 </div>
 
                 {/* Other Projects */}
-                <h3 className="font-serif-display text-xl font-light mb-4" style={{ color: colors.nearBlack }}>Other</h3>
+                <h3 className="font-serif-display text-xl font-light mb-4" style={{ color: colors.nearBlack }}>Personal</h3>
                 <div className="space-y-3">
-                  <div
-                    className="p-5"
+                  <a
+                    href="https://recreation.laurierathletics.com/sports/2021/7/27/dance-class-descriptions.aspx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block p-5 transition-colors"
                     style={{ backgroundColor: colors.creamAlt }}
                   >
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className="font-serif-display text-lg font-light mb-1" style={{ color: colors.nearBlack }}>Outfit Board</h4>
-                        <p className="text-sm font-light italic" style={{ opacity: 0.5 }}>Coming soon</p>
+                        <h4 className="font-serif-display text-lg font-light mb-1" style={{ color: colors.nearBlack }}>Laurier Rec Dance</h4>
+                        <p className="text-sm font-light" style={{ color: colors.warmBrown }}>Dance</p>
                       </div>
+                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.olive }} />
+                    </div>
+                  </a>
+                  <div className="p-5" style={{ backgroundColor: colors.creamAlt }}>
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-serif-display text-lg font-light" style={{ color: colors.nearBlack }}>Outfit Board</h4>
+                      <p className="text-xs font-light italic" style={{ opacity: 0.4 }}>Coming soon</p>
+                    </div>
+                  </div>
+                  <div className="p-5" style={{ backgroundColor: colors.creamAlt }}>
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-serif-display text-lg font-light" style={{ color: colors.nearBlack }}>Colouring Book</h4>
+                      <p className="text-xs font-light italic" style={{ opacity: 0.4 }}>Coming soon</p>
+                    </div>
+                  </div>
+                  <div className="p-5" style={{ backgroundColor: colors.creamAlt }}>
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-serif-display text-lg font-light" style={{ color: colors.nearBlack }}>Reading List</h4>
+                      <p className="text-xs font-light italic" style={{ opacity: 0.4 }}>Coming soon</p>
                     </div>
                   </div>
                 </div>
