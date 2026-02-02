@@ -7,11 +7,11 @@ import Link from 'next/link';
 const colors = {
   olive: '#8A9B7A',
   softPink: '#E8C4C4',
-  plum: '#B88CC4',
+  plum: '#9B7AAF',
   warmBrown: '#C9A67A',
   nearBlack: '#FAF7F2',
-  cream: '#3C1610',
-  creamAlt: '#4E2218',
+  cream: '#261A14',
+  creamAlt: '#332520',
 };
 
 const ArrowUpRight = ({ className = "w-4 h-4", style }: { className?: string; style?: React.CSSProperties }) => (
