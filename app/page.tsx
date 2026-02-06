@@ -34,7 +34,7 @@ const MailIcon = () => (
 
 const experiences = [
   {
-    title: "Marketing Assistant & Business Developer",
+    title: "Sales Associate & Business Developer",
     company: "Fittz Commercial Interiors",
     companyUrl: "https://fittz.ca/",
     period: "Sept 2023 - Aug 2025",
@@ -42,7 +42,7 @@ const experiences = [
   },
   {
     title: "Events & Social Media Executive",
-    company: "CSA WLU",
+    company: "Communications Student Association WLU",
     companyUrl: "https://students.wlu.ca/programs/arts/communication-studies/get-involved.html",
     period: "Sept 2024 - Present",
     description: "Events Executive (Sept 2025–Present): Planned and coordinated events by selecting venues, managing budgets, organizing materials, and ensuring smooth execution. Social Media Executive (Sept 2024–May 2025): Created and posted visually appealing content across social media platforms, maintaining a consistent posting schedule to maximize engagement and build a digital presence.",
@@ -330,7 +330,7 @@ export default function HomePage() {
                     <p className="text-sm font-light" style={{ color: colors.warmBrown }}>Volunteer</p>
                   </div>
                   <div className="lg:col-span-8">
-                    <h3 className="font-serif-display text-xl font-light mb-1" style={{ color: colors.nearBlack }}>CPSC</h3>
+                    <h3 className="font-serif-display text-xl font-light mb-1" style={{ color: colors.nearBlack }}>Centennial Park Skating Club</h3>
                     <p className="text-sm font-light italic" style={{ opacity: 0.5 }}>Details coming soon</p>
                   </div>
                 </div>
