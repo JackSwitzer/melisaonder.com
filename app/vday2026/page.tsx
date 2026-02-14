@@ -108,14 +108,15 @@ const VDay2026Page = () => {
   const [noButtonPos, setNoButtonPos] = useState<{ x: number; y: number } | null>(null);
   const [noButtonVisible, setNoButtonVisible] = useState(true);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [audioStarted, setAudioStarted] = useState(false);
+  const [yesSlide, setYesSlide] = useState(0);
+  const audioStartedRef = useRef(false);
 
   const startAudio = useCallback(() => {
-    if (!audioStarted && audioRef.current) {
+    if (!audioStartedRef.current && audioRef.current) {
       audioRef.current.play().catch(() => {});
-      setAudioStarted(true);
+      audioStartedRef.current = true;
     }
-  }, [audioStarted]);
+  }, []);
 
   const calculateSafePosition = useCallback((): { x: number; y: number } => {
     const BUTTON_W = 130;
@@ -261,64 +262,99 @@ const VDay2026Page = () => {
         </div>
       )}
 
-      {/* ============ YES OUTCOME ============ */}
+      {/* ============ YES OUTCOME — 3 SLIDES (tap to advance) ============ */}
       {outcome === 'yes' && (
-        <div className="fixed inset-0 bg-black flex flex-col items-center z-40 overflow-y-auto">
+        <div className="fixed inset-0 bg-black z-40 overflow-hidden">
           {showConfetti && <Confetti />}
+          <FloatingHearts />
 
-          <div className="flex flex-col items-center text-center px-6 py-12 max-w-lg mx-auto min-h-screen justify-start pt-16">
-            <p className="text-3xl md:text-4xl font-playfair-display text-pink-300 mb-8 animate-pulse">
-              Congrats, you would love me as a worm
-            </p>
-
-            {/* Goat video with text overlay */}
-            <div className="relative w-full max-w-sm rounded-xl overflow-hidden shadow-2xl mb-8">
-              <video
-                src="/vday2026/goats.MOV"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full rounded-xl"
-              />
-              <div className="absolute bottom-4 left-0 right-0 text-center">
-                <span className="bg-black/60 backdrop-blur-sm text-white text-lg md:text-xl font-playfair-display px-4 py-2 rounded-full">
-                  Love you goat &lt;3
-                </span>
+          {/* Slide 1: Worm message */}
+          {yesSlide === 0 && (
+            <section
+              className="absolute inset-0 flex flex-col justify-center items-center text-center px-6 cursor-pointer animate-fadeIn"
+              onClick={() => setYesSlide(1)}
+            >
+              <p className="text-4xl md:text-5xl lg:text-6xl font-playfair-display text-pink-300 mb-6 animate-pulse">
+                Congrats
+              </p>
+              <p className="text-2xl md:text-3xl font-playfair-display text-white/80">
+                you would love me as a worm
+              </p>
+              <div className="mt-12 text-pink-400/40 text-sm animate-bounce">
+                tap to continue
               </div>
-            </div>
+            </section>
+          )}
 
-            {/* Couple photo */}
-            <div className="w-full max-w-sm rounded-xl overflow-hidden shadow-2xl mb-8">
-              <Image
-                src="/vday2026/couple.jpg"
-                alt="Us"
-                width={4032}
-                height={3024}
-                className="w-full object-cover rounded-xl"
-                priority
-              />
-            </div>
-
-            {/* Elegant IOU Card */}
-            <div className="w-full max-w-sm rounded-xl border-2 border-pink-400/50 bg-gradient-to-b from-pink-950/40 to-black p-8 shadow-2xl shadow-pink-500/10 mb-12">
-              <div className="border border-pink-400/30 rounded-lg p-6">
-                <p className="text-sm tracking-[0.3em] text-pink-400/70 uppercase mb-4">
-                  Valentine&apos;s 2026
-                </p>
-                <p className="text-2xl md:text-3xl font-playfair-display text-white mb-2">
-                  IOU
-                </p>
-                <p className="text-xl md:text-2xl font-playfair-display text-pink-200 mb-6">
-                  One dinner at Rodneys
-                </p>
-                <div className="w-16 h-px bg-pink-400/50 mx-auto mb-6" />
-                <p className="text-lg font-playfair-display text-pink-300/80">
-                  See you soon baby, love you
-                </p>
+          {/* Slide 2: Goat video */}
+          {yesSlide === 1 && (
+            <section className="absolute inset-0 flex flex-col justify-center items-center px-6 animate-fadeIn">
+              <div className="relative w-full max-w-xs md:max-w-sm rounded-xl overflow-hidden shadow-2xl" style={{ aspectRatio: '3/4' }}>
+                <video
+                  src="/vday2026/goats.MOV"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover rounded-xl"
+                />
+                <div className="absolute bottom-6 left-0 right-0 text-center">
+                  <span className="bg-black/60 backdrop-blur-sm text-white text-xl md:text-2xl font-playfair-display px-5 py-2 rounded-full">
+                    Love you goat &lt;3
+                  </span>
+                </div>
               </div>
-            </div>
-          </div>
+              <button
+                onClick={() => setYesSlide(2)}
+                className="mt-8 text-pink-400/60 hover:text-pink-300 text-sm transition-colors animate-bounce"
+              >
+                tap to continue
+              </button>
+            </section>
+          )}
+
+          {/* Slide 3: Couple photo + IOU */}
+          {yesSlide === 2 && (
+            <section className="absolute inset-0 flex flex-col justify-center items-center px-6 py-12 overflow-y-auto animate-fadeIn">
+              <div className="w-full max-w-xs md:max-w-md rounded-xl overflow-hidden shadow-2xl mb-10">
+                <Image
+                  src="/vday2026/couple.jpg"
+                  alt="Us"
+                  width={4032}
+                  height={3024}
+                  className="w-full h-auto object-contain rounded-xl"
+                  priority
+                />
+              </div>
+
+              {/* Elegant IOU Card */}
+              <div className="w-full max-w-xs md:max-w-sm rounded-xl border-2 border-pink-400/50 bg-gradient-to-b from-pink-950/40 to-black p-6 md:p-8 shadow-2xl shadow-pink-500/10">
+                <div className="border border-pink-400/30 rounded-lg p-5 md:p-6 text-center">
+                  <p className="text-xs tracking-[0.3em] text-pink-400/70 uppercase mb-4">
+                    Valentine&apos;s 2026
+                  </p>
+                  <p className="text-2xl md:text-3xl font-playfair-display text-white mb-2">
+                    IOU
+                  </p>
+                  <p className="text-lg md:text-2xl font-playfair-display text-pink-200 mb-5">
+                    One dinner at Rodneys
+                  </p>
+                  <div className="w-16 h-px bg-pink-400/50 mx-auto mb-5" />
+                  <p className="text-base md:text-lg font-playfair-display text-pink-300/80">
+                    See you soon baby, love you
+                  </p>
+                </div>
+              </div>
+            </section>
+          )}
+
+          <style jsx global>{`
+            @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+            .animate-fadeIn { animation: fadeIn 0.6s ease-out; }
+          `}</style>
         </div>
       )}
 
