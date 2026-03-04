@@ -71,28 +71,48 @@ const writingSamples = [
 ];
 
 function OutfitBoardCard() {
+  const [flipping, setFlipping] = useState(false);
+
+  const handleClick = () => {
+    if (flipping) return;
+    setFlipping(true);
+    setTimeout(() => { window.location.href = '/closet'; }, 500);
+  };
+
   return (
-    <Link href="/closet" className="group block p-5 transition-colors" style={{ backgroundColor: colors.creamAlt }}>
-      <div className="flex items-center justify-between mb-3">
-        <div>
-          <h4 className="font-serif-display text-lg font-light" style={{ color: colors.nearBlack }}>Outfit Board</h4>
-          <p className="text-xs font-light tracking-[0.15em] uppercase mt-1" style={{ color: colors.warmBrown }}>83 Looks &middot; Capsule Wardrobe Lookbook</p>
+    <div className="group cursor-pointer" style={{ perspective: '2000px' }}
+         onClick={handleClick} role="button" tabIndex={0}
+         onKeyDown={(e) => { if (e.key === 'Enter') handleClick(); }}>
+      <div
+        className="p-5"
+        style={{
+          backgroundColor: colors.creamAlt,
+          transformOrigin: 'left center',
+          transform: flipping ? 'rotateY(-80deg)' : 'rotateY(0deg)',
+          transition: flipping ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
+        }}
+      >
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <h4 className="font-serif-display text-lg font-light" style={{ color: colors.nearBlack }}>Outfit Board</h4>
+            <p className="text-xs font-light tracking-[0.15em] uppercase mt-1" style={{ color: colors.warmBrown }}>83 Looks &middot; Capsule Wardrobe Lookbook</p>
+          </div>
+          <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.softPink }} />
         </div>
-        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.softPink }} />
+        <div className="relative aspect-[16/9] overflow-hidden">
+          <Image
+            src="/outfits/slides/casual-1.jpg"
+            alt="Outfit Board Preview"
+            fill
+            className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+            sizes="(max-width: 768px) 100vw, 600px"
+          />
+        </div>
+        <p className="text-sm leading-relaxed font-light mt-3" style={{ opacity: 0.7 }}>
+          What began as a passion project has become one of my most practical and consistently used personal tools. My outfit board is an ongoing creative outlet with endless possibility within a defined, intentional, and timelessly fashionable wardrobe.
+        </p>
       </div>
-      <div className="relative aspect-[16/9] overflow-hidden">
-        <Image
-          src="/outfits/slides/casual-1.jpg"
-          alt="Outfit Board Preview"
-          fill
-          className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, 600px"
-        />
-      </div>
-      <p className="text-sm leading-relaxed font-light mt-3" style={{ opacity: 0.7 }}>
-        What began as a passion project has become one of my most practical and consistently used personal tools. My outfit board is an ongoing creative outlet with endless possibility within a defined, intentional, and timelessly fashionable wardrobe.
-      </p>
-    </Link>
+    </div>
   );
 }
 
