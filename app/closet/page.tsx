@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -24,20 +24,43 @@ const categoryMeta: Record<Category, { label: string; count: number; prefix: str
   formal: { label: 'Formal', count: FORMAL_COUNT, prefix: 'formal' },
 };
 
+function slideSrc(prefix: string, n: number) {
+  return `/outfits/slides/${prefix}-${n}.jpg`;
+}
+
 export default function ClosetPage() {
   const [category, setCategory] = useState<Category>('casual');
   const [page, setPage] = useState(1);
+  const [loaded, setLoaded] = useState(false);
+  const preloadRef = useRef<Set<string>>(new Set());
 
   const meta = categoryMeta[category];
 
-  const next = () => setPage((p) => Math.min(p + 1, meta.count));
-  const prev = () => setPage((p) => Math.max(p - 1, 1));
+  const next = () => { setLoaded(false); setPage((p) => Math.min(p + 1, meta.count)); };
+  const prev = () => { setLoaded(false); setPage((p) => Math.max(p - 1, 1)); };
 
   const switchCategory = (cat: Category) => {
     if (cat === category) return;
+    setLoaded(false);
     setCategory(cat);
     setPage(1);
   };
+
+  // Preload adjacent images
+  useEffect(() => {
+    const toPreload: string[] = [];
+    for (let offset = 1; offset <= 3; offset++) {
+      if (page + offset <= meta.count) toPreload.push(slideSrc(meta.prefix, page + offset));
+      if (page - offset >= 1) toPreload.push(slideSrc(meta.prefix, page - offset));
+    }
+    toPreload.forEach((src) => {
+      if (!preloadRef.current.has(src)) {
+        preloadRef.current.add(src);
+        const img = new window.Image();
+        img.src = src;
+      }
+    });
+  }, [page, meta.count, meta.prefix]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -48,6 +71,8 @@ export default function ClosetPage() {
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   });
+
+  const currentSrc = slideSrc(meta.prefix, page);
 
   return (
     <>
@@ -78,7 +103,7 @@ export default function ClosetPage() {
             Outfit Board
           </h1>
           <p className="text-sm leading-relaxed font-light max-w-2xl" style={{ opacity: 0.7 }}>
-            A creative project in maximizing timeless, fashion-forward looks from a capsule wardrobe. Each outfit is sourced from store websites or photographed, then composed in Canva Pro with inspiration from Pinterest, Instagram, film, and everyday life.
+            What began as a passion project has become one of my most practical and consistently used personal tools. My outfit board is an ongoing creative outlet with endless possibility within a defined, intentional, and timelessly fashionable wardrobe.
           </p>
 
           {/* Category Tabs */}
@@ -113,12 +138,14 @@ export default function ClosetPage() {
             >
               <div className="relative aspect-[16/9]">
                 <Image
-                  src={`/outfits/slides/${meta.prefix}-${page}.jpg`}
+                  key={currentSrc}
+                  src={currentSrc}
                   alt={`${meta.label} outfit ${page}`}
                   fill
-                  className="object-contain"
+                  className={`object-contain transition-opacity duration-150 ${loaded ? 'opacity-100' : 'opacity-0'}`}
                   sizes="(max-width: 768px) 100vw, 1200px"
-                  priority={page <= 2}
+                  priority
+                  onLoad={() => setLoaded(true)}
                 />
               </div>
 
@@ -162,6 +189,7 @@ export default function ClosetPage() {
                   const rect = e.currentTarget.getBoundingClientRect();
                   const pct = (e.clientX - rect.left) / rect.width;
                   const newPage = Math.max(1, Math.min(meta.count, Math.round(pct * meta.count)));
+                  setLoaded(false);
                   setPage(newPage);
                 }}
               >

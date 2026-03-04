@@ -90,7 +90,7 @@ function OutfitBoardCard() {
         />
       </div>
       <p className="text-sm leading-relaxed font-light mt-3" style={{ opacity: 0.7 }}>
-        A creative project in maximizing timeless, fashion-forward looks from a capsule wardrobe. Each outfit is sourced from store websites or photographed, then composed in Canva Pro with inspiration from Pinterest, Instagram, film, and everyday life.
+        What began as a passion project has become one of my most practical and consistently used personal tools. My outfit board is an ongoing creative outlet with endless possibility within a defined, intentional, and timelessly fashionable wardrobe.
       </p>
     </Link>
   );
