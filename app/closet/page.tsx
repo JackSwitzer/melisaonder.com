@@ -218,9 +218,10 @@ export default function ClosetPage() {
             }} />
           )}
         </div>
-        <p className="mt-6 max-w-md text-center text-sm leading-relaxed font-light" style={{ color: c.text, opacity: 0.45 }}>
-          What began as a passion project has become one of my most practical and consistently used personal tools. My outfit board is an ongoing creative outlet with endless possibility within a defined, intentional, and timelessly fashionable wardrobe.
-        </p>
+        <div className="mt-6 max-w-md text-center text-sm leading-relaxed font-light" style={{ color: c.text, opacity: 0.45 }}>
+          <p>A creative project in maximizing timeless, fashion-forward looks from a capsule wardrobe&mdash;specifically, my own closet. Each outfit is built by sourcing my exact pieces from store websites or photographing them myself, then composing looks in Canva Pro drawn from inspiration across Pinterest, Instagram, film, and everyday life.</p>
+          <p className="mt-3">What began as a passion project has become one of my most practical and consistently used personal tools. My outfit board is an ongoing creative outlet with endless possibility within a defined, intentional, and timelessly fashionable wardrobe.</p>
+        </div>
         <Link href="/" className="mt-4 text-xs tracking-wider opacity-25 hover:opacity-50 transition-opacity" style={{ color: c.text }}>melisaonder.com</Link>
       </div>
     );
@@ -275,11 +276,11 @@ export default function ClosetPage() {
                     alt="" fill className="object-contain" sizes="100vw" />
                 </div>
 
-                {/* Sweep shadow during flip */}
+                {/* Page fold shadow during flip */}
                 <div className="absolute inset-0 pointer-events-none" style={{
                   zIndex: 3,
-                  background: 'linear-gradient(to right, rgba(0,0,0,0.12) 0%, transparent 40%)',
-                  animation: `shadowPulse ${FLIP_MS}ms ease-out forwards`,
+                  background: `linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.08) 15%, transparent 50%)`,
+                  animation: `shadowPulse ${FLIP_MS}ms ease-in-out forwards`,
                 }} />
               </>
             ) : (
@@ -322,7 +323,7 @@ export default function ClosetPage() {
 
         {/* Title overlay - only for titled looks, hidden during flip */}
         {isTitled && look.title && !isFlipping && (
-          <div key={`title-${idx}`} className="absolute bottom-0 left-0 right-0 px-5 py-4 z-10"
+          <div key={`title-${idx}`} className="absolute bottom-0 left-0 right-0 px-5 py-4 z-30"
                style={{
                  background: `linear-gradient(to top, ${c.bg}ee, ${c.bg}88, transparent)`,
                  animation: 'fadeUp 0.3s ease-out both',
@@ -370,12 +371,14 @@ export default function ClosetPage() {
           to { opacity: 1; transform: translateY(0); }
         }
         @keyframes pageFlipFwd {
-          from { transform: rotateY(0deg); }
-          to { transform: rotateY(-180deg); }
+          0% { transform: rotateY(0deg) scale(1); }
+          40% { transform: rotateY(-90deg) scale(1.02); }
+          100% { transform: rotateY(-180deg) scale(1); }
         }
         @keyframes pageFlipBack {
-          from { transform: rotateY(-180deg); }
-          to { transform: rotateY(0deg); }
+          0% { transform: rotateY(-180deg) scale(1); }
+          60% { transform: rotateY(-90deg) scale(1.02); }
+          100% { transform: rotateY(0deg) scale(1); }
         }
         @keyframes shadowPulse {
           0% { opacity: 0; }
