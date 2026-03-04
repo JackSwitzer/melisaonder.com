@@ -227,6 +227,9 @@ export default function HomePage() {
                 <p className="text-base leading-relaxed font-light italic mb-6" style={{ opacity: 0.7 }}>
                   Working across legal analysis, sales, marketing, and events. Drawn to problems that need solving and work that spans disciplines. Passionate about building authentic, valuable connections and preparing for the LSAT while building cross-functional skills.
                 </p>
+                <p className="text-base leading-relaxed font-light mb-6" style={{ opacity: 0.7 }}>
+                  What began as a passion project has become one of my most practical and consistently used personal tools. My outfit board is an ongoing creative outlet with endless possibility within a defined, intentional, and timelessly fashionable wardrobe.
+                </p>
                 <p className="text-sm font-light tracking-wide uppercase mb-3" style={{ color: colors.warmBrown }}>Languages</p>
                 <div className="flex flex-wrap gap-3">
                   {['English', 'French', 'Turkish'].map((lang) => (
