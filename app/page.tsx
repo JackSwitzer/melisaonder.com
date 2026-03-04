@@ -70,6 +70,32 @@ const writingSamples = [
   { title: 'Child Marriage in India', type: 'Policy Briefing', course: 'Poverty & Inequality in the Global South', href: '/papers/policy-briefing-child-marriage.pdf' },
 ];
 
+function OutfitBoardCard() {
+  return (
+    <Link href="/closet" className="group block p-5 transition-colors" style={{ backgroundColor: colors.creamAlt }}>
+      <div className="flex items-center justify-between mb-3">
+        <div>
+          <h4 className="font-serif-display text-lg font-light" style={{ color: colors.nearBlack }}>Outfit Board</h4>
+          <p className="text-xs font-light tracking-[0.15em] uppercase mt-1" style={{ color: colors.warmBrown }}>83 Looks &middot; Capsule Wardrobe Lookbook</p>
+        </div>
+        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.softPink }} />
+      </div>
+      <div className="relative aspect-[16/9] overflow-hidden">
+        <Image
+          src="/outfits/slides/casual-1.jpg"
+          alt="Outfit Board Preview"
+          fill
+          className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+          sizes="(max-width: 768px) 100vw, 600px"
+        />
+      </div>
+      <p className="text-sm leading-relaxed font-light mt-3" style={{ opacity: 0.7 }}>
+        A creative project in maximizing timeless, fashion-forward looks from a capsule wardrobe. Each outfit is sourced from store websites or photographed, then composed in Canva Pro with inspiration from Pinterest, Instagram, film, and everyday life.
+      </p>
+    </Link>
+  );
+}
+
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -398,12 +424,7 @@ export default function HomePage() {
                       <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.softPink }} />
                     </div>
                   </a>
-                  <div className="p-5" style={{ backgroundColor: colors.creamAlt }}>
-                    <div className="flex items-center justify-between">
-                      <h4 className="font-serif-display text-lg font-light" style={{ color: colors.nearBlack }}>Outfit Board</h4>
-                      <p className="text-xs font-light italic" style={{ opacity: 0.4 }}>Coming soon</p>
-                    </div>
-                  </div>
+                  <OutfitBoardCard />
                   <div className="p-5" style={{ backgroundColor: colors.creamAlt }}>
                     <div className="flex items-center justify-between">
                       <h4 className="font-serif-display text-lg font-light" style={{ color: colors.nearBlack }}>Colouring Book</h4>
