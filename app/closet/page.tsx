@@ -312,11 +312,11 @@ export default function ClosetPage() {
         )}
 
         {/* Inspo label - top right of image */}
-        {isTitled && !isFlipping && (
+        {!isFlipping && (
           <div className="absolute top-3 right-3 z-10">
-            <span className="text-[9px] tracking-[0.2em] uppercase px-2 py-1"
-                  style={{ color: c.brown, opacity: 0.4, backgroundColor: `${c.bg}88`, borderRadius: '2px' }}>
-              Inspo
+            <span className="text-[10px] tracking-[0.25em] uppercase px-3 py-1.5 font-light"
+                  style={{ color: c.pink, backgroundColor: `${c.bg}bb`, borderRadius: '3px', border: `1px solid ${c.brown}30` }}>
+              Inspo &rarr;
             </span>
           </div>
         )}

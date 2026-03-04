@@ -71,27 +71,10 @@ const writingSamples = [
 ];
 
 function OutfitBoardCard() {
-  const [flipping, setFlipping] = useState(false);
-
-  const handleClick = () => {
-    if (flipping) return;
-    setFlipping(true);
-    setTimeout(() => { window.location.href = '/closet'; }, 500);
-  };
-
   return (
-    <div className="group cursor-pointer" style={{ perspective: '2000px' }}
-         onClick={handleClick} role="button" tabIndex={0}
-         onKeyDown={(e) => { if (e.key === 'Enter') handleClick(); }}>
-      <div
-        className="p-5"
-        style={{
-          backgroundColor: colors.creamAlt,
-          transformOrigin: 'left center',
-          transform: flipping ? 'rotateY(-80deg)' : 'rotateY(0deg)',
-          transition: flipping ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
-        }}
-      >
+    <Link href="/closet" className="group block">
+      <div className="p-5 transition-all duration-300 group-hover:shadow-lg" style={{ backgroundColor: colors.creamAlt }}>
+
         <div className="flex items-center justify-between mb-3">
           <div>
             <h4 className="font-serif-display text-lg font-light" style={{ color: colors.nearBlack }}>Outfit Board</h4>
@@ -112,7 +95,7 @@ function OutfitBoardCard() {
           A creative project in maximizing timeless, fashion-forward looks from a capsule wardrobe&mdash;specifically, my own closet. Each outfit is sourced from store websites or photographed, then composed in Canva Pro drawn from inspiration across Pinterest, Instagram, film, and everyday life.
         </p>
       </div>
-    </div>
+    </Link>
   );
 }
 
