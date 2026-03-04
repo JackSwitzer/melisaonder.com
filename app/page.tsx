@@ -107,15 +107,7 @@ export default function HomePage() {
 
   return (
     <>
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@200;300;400;500&display=swap');
-        .font-serif-display { font-family: 'Cormorant Garamond', Georgia, serif; }
-        .font-sans-light { font-family: 'Libre Franklin', system-ui, sans-serif; }
-        html { scroll-behavior: smooth; }
-        ::selection { background: ${colors.softPink}; color: ${colors.cream}; }
-      `}</style>
-
-      <main className="min-h-screen font-sans-light antialiased" style={{ backgroundColor: colors.cream, color: colors.nearBlack }}>
+      <main className="min-h-screen antialiased" style={{ backgroundColor: colors.cream, color: colors.nearBlack }}>
         {/* Navigation */}
         <nav
           className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4' : 'py-6'}`}

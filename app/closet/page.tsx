@@ -4,387 +4,264 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const colors = {
-  olive: '#8A9B7A',
-  softPink: '#E8C4C4',
-  plum: '#9B7AAF',
-  warmBrown: '#C9A67A',
-  nearBlack: '#FAF7F2',
-  cream: '#261A14',
-  creamAlt: '#332520',
+const c = {
+  pink: '#E8C4C4',
+  brown: '#C9A67A',
+  text: '#FAF7F2',
+  bg: '#261A14',
+  card: '#332520',
 };
 
-interface OutfitPage {
+interface Look {
   src: string;
-  title: string;
-  subtitle?: string;
+  title?: string;
+  tag: string;
 }
 
-const outfits: OutfitPage[] = [
-  { src: '/outfits/slides/formal-5.jpg', title: 'JackSwitzer.com + MelisaOnder.com', subtitle: 'Formal' },
-  { src: '/outfits/slides/formal-1.jpg', title: 'The Power Suit', subtitle: 'Formal' },
-  { src: '/outfits/slides/formal-10.jpg', title: 'Golden Hour', subtitle: 'Formal' },
-  { src: '/outfits/slides/formal-20.jpg', title: 'Refined Ivory', subtitle: 'Formal' },
-  { src: '/outfits/slides/formal-15.jpg', title: 'Skating in Burberry', subtitle: 'Formal' },
-  { src: '/outfits/slides/casual-1.jpg', title: 'Fur & Leather', subtitle: 'Everyday' },
-  { src: '/outfits/slides/casual-10.jpg', title: 'Camel & Burgundy', subtitle: 'Everyday' },
-  { src: '/outfits/slides/casual-15.jpg', title: 'Moto Luxe', subtitle: 'Everyday' },
-  { src: '/outfits/slides/casual-25.jpg', title: 'Off-Duty Cool', subtitle: 'Everyday' },
-  { src: '/outfits/slides/casual-30.jpg', title: 'Denim & Knits', subtitle: 'Everyday' },
+/* ── titled curated looks (shown first) ── */
+const titledLooks: Look[] = [
+  { src: '/outfits/slides/formal-5.jpg', title: 'JackSwitzer.com + MelisaOnder.com', tag: 'Formal' },
+  { src: '/outfits/slides/formal-1.jpg', title: 'The Power Suit', tag: 'Formal' },
+  { src: '/outfits/slides/formal-10.jpg', title: 'Golden Hour', tag: 'Formal' },
+  { src: '/outfits/slides/formal-20.jpg', title: 'Refined Ivory', tag: 'Formal' },
+  { src: '/outfits/slides/formal-15.jpg', title: 'Skating in Burberry', tag: 'Formal' },
+  { src: '/outfits/slides/casual-1.jpg', title: 'Fur & Leather', tag: 'Everyday' },
+  { src: '/outfits/slides/casual-10.jpg', title: 'Camel & Burgundy', tag: 'Everyday' },
+  { src: '/outfits/slides/casual-15.jpg', title: 'Moto Luxe', tag: 'Everyday' },
+  { src: '/outfits/slides/casual-25.jpg', title: 'Off-Duty Cool', tag: 'Everyday' },
+  { src: '/outfits/slides/casual-30.jpg', title: 'Denim & Knits', tag: 'Everyday' },
 ];
 
+/* ── remaining looks (no titles) ── */
+const titledSrcs = new Set(titledLooks.map((l) => l.src));
+
+function remainingLooks(): Look[] {
+  const out: Look[] = [];
+  for (let i = 1; i <= 34; i++) {
+    const src = `/outfits/slides/formal-${i}.jpg`;
+    if (!titledSrcs.has(src)) out.push({ src, tag: 'Formal' });
+  }
+  for (let i = 1; i <= 49; i++) {
+    const src = `/outfits/slides/casual-${i}.jpg`;
+    if (!titledSrcs.has(src)) out.push({ src, tag: 'Everyday' });
+  }
+  return out;
+}
+
+const allLooks: Look[] = [...titledLooks, ...remainingLooks()];
+const TITLED_COUNT = titledLooks.length;
+
 export default function ClosetPage() {
-  const [currentPage, setCurrentPage] = useState(-1); // -1 = cover showing
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [coverOpen, setCoverOpen] = useState(false);
-  const preloadRef = useRef<Set<string>>(new Set());
-  const totalPages = outfits.length;
+  const [open, setOpen] = useState(false);
+  const [idx, setIdx] = useState(0);
+  const [prevIdx, setPrevIdx] = useState(0);
+  const mainRef = useRef<HTMLDivElement>(null);
+  const total = allLooks.length;
 
-  const openCover = useCallback(() => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCoverOpen(true);
-    setTimeout(() => {
-      setCurrentPage(0);
-      setIsAnimating(false);
-    }, 800);
-  }, [isAnimating]);
+  const goNext = useCallback(() => {
+    setIdx((cur) => {
+      setPrevIdx(cur);
+      return Math.min(cur + 1, total - 1);
+    });
+  }, [total]);
 
-  const nextPage = useCallback(() => {
-    if (isAnimating || currentPage >= totalPages - 1) return;
-    setIsAnimating(true);
-    setTimeout(() => {
-      setCurrentPage((p) => p + 1);
-      setIsAnimating(false);
-    }, 600);
-  }, [isAnimating, currentPage, totalPages]);
-
-  const prevPage = useCallback(() => {
-    if (isAnimating) return;
-    if (currentPage <= 0) {
-      // Close cover
-      setIsAnimating(true);
-      setCoverOpen(false);
-      setTimeout(() => {
-        setCurrentPage(-1);
-        setIsAnimating(false);
-      }, 800);
-      return;
-    }
-    setIsAnimating(true);
-    setTimeout(() => {
-      setCurrentPage((p) => p - 1);
-      setIsAnimating(false);
-    }, 600);
-  }, [isAnimating, currentPage]);
-
-  // Keyboard nav
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') {
-        e.preventDefault();
-        if (currentPage === -1) openCover();
-        else nextPage();
-      }
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        prevPage();
-      }
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [openCover, nextPage, prevPage, currentPage]);
-
-  // Preload images
-  useEffect(() => {
-    outfits.forEach((o) => {
-      if (!preloadRef.current.has(o.src)) {
-        preloadRef.current.add(o.src);
-        const img = new window.Image();
-        img.src = o.src;
-      }
+  const goPrev = useCallback(() => {
+    setIdx((cur) => {
+      if (cur === 0) { setOpen(false); return 0; }
+      setPrevIdx(cur);
+      return cur - 1;
     });
   }, []);
 
-  const outfit = currentPage >= 0 ? outfits[currentPage] : null;
+  /* keyboard - always on window */
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        if (!open) setOpen(true);
+        else goNext();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (open) goPrev();
+      } else if (e.key === 'Escape') {
+        setOpen(false);
+      } else if (e.key === 'Enter' && !open) {
+        e.preventDefault();
+        setOpen(true);
+      }
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open, goNext, goPrev]);
 
-  return (
-    <>
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@200;300;400;500&display=swap');
-        .font-serif-display { font-family: 'Cormorant Garamond', Georgia, serif; }
-        .font-sans-light { font-family: 'Libre Franklin', system-ui, sans-serif; }
-        html { scroll-behavior: smooth; }
-        ::selection { background: ${colors.softPink}; color: ${colors.cream}; }
+  /* focus main on mount and on open */
+  useEffect(() => {
+    mainRef.current?.focus();
+  }, [open]);
 
-        .book-container {
-          perspective: 2000px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+  /* preload nearby images */
+  useEffect(() => {
+    const start = Math.max(0, idx - 2);
+    const end = Math.min(total - 1, idx + 5);
+    for (let i = start; i <= end; i++) {
+      const img = new window.Image();
+      img.src = allLooks[i].src;
+    }
+  }, [idx, total]);
 
-        .book {
-          position: relative;
-          transform-style: preserve-3d;
-        }
+  /* preload first few on mount */
+  useEffect(() => {
+    for (let i = 0; i < Math.min(6, total); i++) {
+      const img = new window.Image();
+      img.src = allLooks[i].src;
+    }
+  }, [total]);
 
-        .book-cover {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          transform-origin: left center;
-          transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-          transform-style: preserve-3d;
-          z-index: 10;
-          cursor: pointer;
-        }
-
-        .book-cover.open {
-          transform: rotateY(-160deg);
-        }
-
-        .cover-front, .cover-back {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          backface-visibility: hidden;
-        }
-
-        .cover-back {
-          transform: rotateY(180deg);
-        }
-
-        .page-content {
-          transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        .page-content.entering-right {
-          animation: slideInRight 0.5s ease forwards;
-        }
-
-        .page-content.entering-left {
-          animation: slideInLeft 0.5s ease forwards;
-        }
-
-        @keyframes slideInRight {
-          from { opacity: 0; transform: translateX(30px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes slideInLeft {
-          from { opacity: 0; transform: translateX(-30px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-
-        .page-turn-shadow {
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 40%;
-          height: 100%;
-          background: linear-gradient(to left, rgba(0,0,0,0.08), transparent);
-          pointer-events: none;
-          opacity: 0;
-          transition: opacity 0.3s;
-        }
-
-        .book:hover .page-turn-shadow {
-          opacity: 1;
-        }
-      `}</style>
-
-      <main
-        className="min-h-screen font-sans-light antialiased flex flex-col"
-        style={{ backgroundColor: colors.cream, color: colors.nearBlack }}
-      >
-        {/* Minimal header */}
-        <nav className="py-3 px-6 flex items-center justify-between shrink-0 z-20 relative">
-          <Link href="/" className="font-serif-display text-lg tracking-wide hover:opacity-60 transition-opacity">
-            Melisa Onder
-          </Link>
-          <Link href="/#projects" className="text-xs font-light hover:opacity-60 transition-opacity" style={{ opacity: 0.5 }}>
-            Back to Portfolio
-          </Link>
-        </nav>
-
-        {/* Book area */}
-        <div className="flex-1 flex flex-col items-center justify-center px-4 pb-4">
-          <div className="book-container w-full max-w-5xl" style={{ height: 'calc(100vh - 120px)' }}>
-            <div
-              className="book relative"
-              style={{
-                width: '100%',
-                maxWidth: '900px',
-                aspectRatio: '16/9',
-              }}
-            >
-              {/* Cover */}
-              <div className={`book-cover ${coverOpen ? 'open' : ''}`} onClick={!coverOpen ? openCover : undefined}>
-                {/* Cover front */}
-                <div
-                  className="cover-front flex flex-col items-center justify-center rounded-r-sm"
-                  style={{
-                    backgroundColor: colors.creamAlt,
-                    border: `1px solid ${colors.warmBrown}30`,
-                    boxShadow: '4px 4px 20px rgba(0,0,0,0.3)',
-                  }}
-                >
-                  <div className="text-center px-8">
-                    <p className="text-xs tracking-[0.3em] uppercase font-light mb-6" style={{ color: colors.warmBrown }}>
-                      A Capsule Wardrobe Lookbook
-                    </p>
-                    <h1 className="font-serif-display text-3xl md:text-5xl font-light mb-2" style={{ color: colors.softPink }}>
-                      Melisa Onder&apos;s
-                    </h1>
-                    <h2 className="font-serif-display text-4xl md:text-6xl italic font-light mb-8" style={{ color: colors.nearBlack }}>
-                      Outfit Board
-                    </h2>
-                    <div className="w-16 h-px mx-auto mb-6" style={{ backgroundColor: colors.warmBrown + '40' }} />
-                    <p className="text-xs font-light tracking-[0.15em]" style={{ color: colors.warmBrown, opacity: 0.6 }}>
-                      {totalPages} Looks
-                    </p>
-                    <p className="text-xs font-light mt-8 animate-pulse" style={{ opacity: 0.3 }}>
-                      Click to open
-                    </p>
-                  </div>
-                </div>
-
-                {/* Cover back (hidden, seen when cover flips) */}
-                <div
-                  className="cover-back"
-                  style={{ backgroundColor: colors.creamAlt }}
-                />
-              </div>
-
-              {/* Pages underneath the cover */}
-              <div
-                className="absolute inset-0 overflow-hidden rounded-r-sm"
-                style={{
-                  backgroundColor: colors.creamAlt,
-                  boxShadow: '2px 2px 15px rgba(0,0,0,0.2)',
-                }}
-              >
-                {outfit && (
-                  <div
-                    key={currentPage}
-                    className="page-content entering-right absolute inset-0"
-                  >
-                    {/* Outfit image */}
-                    <div className="absolute inset-0">
-                      <Image
-                        src={outfit.src}
-                        alt={outfit.title}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 100vw, 900px"
-                        priority
-                      />
-                    </div>
-
-                    {/* Title overlay at bottom */}
-                    <div
-                      className="absolute bottom-0 left-0 right-0 p-4 md:p-6"
-                      style={{
-                        background: `linear-gradient(to top, ${colors.cream}ee, ${colors.cream}cc, transparent)`,
-                      }}
-                    >
-                      <div className="flex items-end justify-between">
-                        <div>
-                          <p className="text-[10px] tracking-[0.2em] uppercase font-light mb-1" style={{ color: colors.warmBrown }}>
-                            {outfit.subtitle}
-                          </p>
-                          <h3 className="font-serif-display text-xl md:text-2xl font-light" style={{ color: colors.softPink }}>
-                            {outfit.title}
-                          </h3>
-                        </div>
-                        <p className="text-xs font-light tabular-nums" style={{ color: colors.warmBrown, opacity: 0.5 }}>
-                          {String(currentPage + 1).padStart(2, '0')}/{String(totalPages).padStart(2, '0')}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Page turn shadow hint */}
-                    <div className="page-turn-shadow" />
-                  </div>
-                )}
-
-                {/* Welcome text when cover is closed */}
-                {!coverOpen && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <p className="text-sm font-light" style={{ opacity: 0.3 }}>
-                      Open the cover to begin
-                    </p>
-                  </div>
-                )}
-
-                {/* Click zones */}
-                {coverOpen && currentPage >= 0 && (
-                  <>
-                    <button
-                      onClick={prevPage}
-                      className="absolute left-0 top-0 bottom-0 w-1/3 cursor-w-resize z-10 group"
-                      aria-label="Previous"
-                    >
-                      <div className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-60 transition-opacity rounded-full" style={{ backgroundColor: `${colors.cream}cc` }}>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                        </svg>
-                      </div>
-                    </button>
-                    <button
-                      onClick={nextPage}
-                      disabled={currentPage >= totalPages - 1}
-                      className="absolute right-0 top-0 bottom-0 w-1/3 cursor-e-resize z-10 group"
-                      aria-label="Next"
-                    >
-                      <div className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-60 transition-opacity rounded-full" style={{ backgroundColor: `${colors.cream}cc` }}>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                        </svg>
-                      </div>
-                    </button>
-                  </>
-                )}
-              </div>
+  /* ── COVER ── */
+  if (!open) {
+    return (
+      <div ref={mainRef} tabIndex={-1} className="outline-none min-h-screen flex flex-col items-center justify-center px-6" style={{ backgroundColor: c.bg, color: c.text }}>
+        <div
+          onClick={() => setOpen(true)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen(true); } }}
+          className="group relative w-full max-w-md cursor-pointer outline-none"
+          style={{ aspectRatio: '3/4' }}
+        >
+          <div
+            className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.01]"
+            style={{ backgroundColor: c.card, boxShadow: '6px 10px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,180,160,0.06)' }}
+          >
+            <div className="absolute inset-4" style={{ border: `1px solid ${c.brown}20` }} />
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
+              <p className="text-[10px] tracking-[0.35em] uppercase mb-8" style={{ color: c.brown }}>A Capsule Wardrobe Lookbook</p>
+              <h1 className="font-display text-4xl md:text-5xl mb-1" style={{ color: c.pink }}>Melisa Onder&apos;s</h1>
+              <h2 className="font-display text-5xl md:text-6xl italic mb-10" style={{ color: c.text }}>Outfit Board</h2>
+              <div className="w-12 h-px mb-6" style={{ backgroundColor: `${c.brown}40` }} />
+              <p className="text-[11px] tracking-[0.2em] uppercase" style={{ color: c.brown, opacity: 0.5 }}>{total} Looks</p>
+              <p className="absolute bottom-8 text-[11px] tracking-wider opacity-0 group-hover:opacity-30 transition-opacity" style={{ color: c.text }}>Click or press arrow key</p>
             </div>
           </div>
-
-          {/* Bottom scrubber */}
-          {coverOpen && currentPage >= 0 && (
-            <div className="flex items-center gap-4 mt-3 w-full max-w-5xl px-4">
-              <p className="text-xs font-light tabular-nums shrink-0" style={{ color: colors.softPink }}>
-                {String(currentPage + 1).padStart(2, '0')}/{String(totalPages).padStart(2, '0')}
-              </p>
-              <div
-                className="flex-1 relative h-0.5 group cursor-pointer"
-                style={{ backgroundColor: `${colors.softPink}20` }}
-                onClick={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const pct = (e.clientX - rect.left) / rect.width;
-                  const newPage = Math.max(0, Math.min(totalPages - 1, Math.round(pct * (totalPages - 1))));
-                  setCurrentPage(newPage);
-                }}
-              >
-                <div
-                  className="absolute left-0 top-0 h-full transition-all duration-200"
-                  style={{
-                    width: `${((currentPage + 1) / totalPages) * 100}%`,
-                    backgroundColor: colors.softPink,
-                  }}
-                />
-              </div>
-              <p className="text-[10px] font-light shrink-0 font-serif-display italic" style={{ color: colors.warmBrown, opacity: 0.4 }}>
-                {outfit?.title}
-              </p>
-            </div>
-          )}
         </div>
-      </main>
-    </>
+        <Link href="/" className="mt-6 text-xs tracking-wider opacity-25 hover:opacity-50 transition-opacity" style={{ color: c.text }}>melisaonder.com</Link>
+      </div>
+    );
+  }
+
+  /* ── LOOKBOOK ── */
+  const look = allLooks[idx];
+  const isTitled = idx < TITLED_COUNT;
+  const goingForward = idx >= prevIdx;
+
+  return (
+    <div ref={mainRef} tabIndex={-1} className="outline-none h-screen flex flex-col overflow-hidden" style={{ backgroundColor: c.bg, color: c.text }}>
+      {/* Top bar */}
+      <nav className="flex items-center justify-between px-5 py-2 shrink-0">
+        <button onClick={() => setOpen(false)} className="font-display text-lg tracking-wide hover:opacity-60 transition-opacity">
+          Outfit Board
+        </button>
+        <div className="flex items-center gap-5">
+          <span className="text-[10px] tracking-[0.15em] uppercase" style={{ color: c.brown, opacity: 0.5 }}>{look.tag}</span>
+          <span className="text-xs tabular-nums" style={{ color: c.pink, opacity: 0.6 }}>{idx + 1}/{total}</span>
+          <Link href="/" className="text-xs opacity-25 hover:opacity-50 transition-opacity">Back</Link>
+        </div>
+      </nav>
+
+      {/* Image area */}
+      <div className="flex-1 relative mx-2 mb-1 overflow-hidden" style={{ backgroundColor: c.card }}>
+        {/* Render current and adjacent slides for smooth transitions */}
+        {allLooks.map((l, i) => {
+          const dist = i - idx;
+          if (Math.abs(dist) > 1) return null;
+          return (
+            <div
+              key={i}
+              className="absolute inset-0"
+              style={{
+                opacity: dist === 0 ? 1 : 0,
+                transform: dist === 0 ? 'none' : dist > 0 ? 'translateX(100%)' : 'translateX(-100%)',
+                transition: 'opacity 0.25s ease-out, transform 0.25s ease-out',
+                zIndex: dist === 0 ? 2 : 1,
+              }}
+            >
+              <Image
+                src={l.src}
+                alt={l.title || `Look ${i + 1}`}
+                fill
+                className="object-contain"
+                sizes="100vw"
+                priority={i < 4}
+              />
+            </div>
+          );
+        })}
+
+        {/* Title overlay - only for titled looks */}
+        {isTitled && look.title && (
+          <div
+            key={`title-${idx}`}
+            className="absolute bottom-0 left-0 right-0 px-5 py-4 z-10"
+            style={{
+              background: `linear-gradient(to top, ${c.bg}ee, ${c.bg}88, transparent)`,
+              animation: 'fadeUp 0.3s ease-out both',
+            }}
+          >
+            <p className="text-[10px] tracking-[0.2em] uppercase mb-1" style={{ color: c.brown, opacity: 0.6 }}>{look.tag}</p>
+            <h3 className="font-display text-2xl md:text-3xl" style={{ color: c.pink }}>{look.title}</h3>
+          </div>
+        )}
+
+        {/* Nav zones */}
+        <div onClick={goPrev} className="absolute left-0 top-0 bottom-0 w-1/3 z-20 cursor-w-resize group">
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-40 transition-opacity" style={{ backgroundColor: `${c.bg}cc` }}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+          </span>
+        </div>
+        <div onClick={goNext} className="absolute right-0 top-0 bottom-0 w-1/3 z-20 cursor-e-resize group">
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-40 transition-opacity" style={{ backgroundColor: `${c.bg}cc` }}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </span>
+        </div>
+      </div>
+
+      {/* Scrubber */}
+      <div className="px-5 pb-2 shrink-0">
+        <div
+          className="relative h-px cursor-pointer"
+          style={{ backgroundColor: `${c.pink}15` }}
+          onClick={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const pct = (e.clientX - rect.left) / rect.width;
+            const target = Math.max(0, Math.min(total - 1, Math.round(pct * (total - 1))));
+            setPrevIdx(idx);
+            setIdx(target);
+          }}
+        >
+          <div className="absolute left-0 top-0 h-full transition-all duration-150" style={{ width: `${((idx + 1) / total) * 100}%`, backgroundColor: c.pink }} />
+          {/* Titled section marker */}
+          <div
+            className="absolute top-0 h-full"
+            style={{
+              left: 0,
+              width: `${(TITLED_COUNT / total) * 100}%`,
+              borderRight: `1px solid ${c.brown}30`,
+            }}
+          />
+        </div>
+        <div className="flex justify-between mt-1">
+          <span className="text-[9px] uppercase tracking-wider" style={{ color: c.brown, opacity: 0.3 }}>
+            {idx < TITLED_COUNT ? 'Curated' : 'Collection'}
+          </span>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
   );
 }
