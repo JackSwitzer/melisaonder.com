@@ -145,19 +145,19 @@ export default function ClosetPage() {
       <div
         ref={containerRef}
         tabIndex={-1}
-        className="outline-none h-screen flex flex-col items-center justify-center px-4"
+        className="outline-none min-h-screen flex flex-col items-center justify-center px-4 py-12 gap-8 md:gap-10"
         style={{ backgroundColor: c.bg, color: c.text }}
       >
-        {/* Magazine cover */}
+        {/* Magazine cover — the clickable book */}
         <div
           onClick={openCover}
           role="button"
           tabIndex={0}
           onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCover(); } }}
-          className="group relative w-full max-w-[340px] md:max-w-[400px] cursor-pointer outline-none"
+          className="group relative w-full max-w-[280px] md:max-w-[340px] cursor-pointer outline-none shrink-0"
           style={{
             aspectRatio: '3 / 4',
-            maxHeight: '70vh',
+            maxHeight: '55vh',
           }}
         >
           <div
@@ -167,10 +167,10 @@ export default function ClosetPage() {
               boxShadow: '4px 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,180,160,0.06)',
             }}
           >
-            {/* Inner border */}
             <div className="absolute inset-3 md:inset-4 pointer-events-none" style={{ border: `1px solid ${c.brown}18` }} />
 
-            {/* Content */}
+            <p className="text-[9px] tracking-[0.35em] uppercase mb-6" style={{ color: c.brown }}>A Capsule Wardrobe Lookbook</p>
+
             <h1 className="font-display text-5xl md:text-6xl font-light tracking-tight" style={{ color: c.pink }}>
               Mel
             </h1>
@@ -184,27 +184,33 @@ export default function ClosetPage() {
               {dateStr}
             </p>
 
-            <div className="mt-6 space-y-3 text-[11px] md:text-xs leading-relaxed font-light text-center px-2" style={{ color: c.text, opacity: 0.35 }}>
-              <p>A creative project in maximizing timeless, fashion-forward looks from a capsule wardrobe&mdash;specifically, my own closet. Each outfit is sourced from store websites or photographed, then composed in Canva Pro.</p>
-              <p>An ongoing creative outlet with endless possibility within a defined, intentional, and timelessly fashionable wardrobe.</p>
-            </div>
-
-            <p className="absolute bottom-4 md:bottom-6 text-[10px] tracking-[0.2em] uppercase" style={{ color: c.brown, opacity: 0.35 }}>
+            <p className="absolute bottom-4 md:bottom-6 text-[10px] tracking-[0.2em] uppercase" style={{ color: c.brown, opacity: 0.3 }}>
               {total} Looks
             </p>
 
-            {/* Loading / hover hint */}
-            <p className="absolute bottom-10 md:bottom-12 text-[10px] tracking-wider transition-opacity duration-500"
-               style={{ color: c.text, opacity: ready ? 0 : 0.3 }}>
-              {ready ? '' : 'Loading\u2026'}
-            </p>
             {ready && (
-              <p className="absolute bottom-10 md:bottom-12 text-[10px] tracking-wider opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+              <p className="absolute bottom-9 md:bottom-11 text-[10px] tracking-wider opacity-0 group-hover:opacity-30 transition-opacity duration-500"
                  style={{ color: c.text }}>
                 Click to open
               </p>
             )}
+            {!ready && (
+              <p className="absolute bottom-9 md:bottom-11 text-[10px] tracking-wider"
+                 style={{ color: c.text, opacity: 0.3 }}>
+                Loading&hellip;
+              </p>
+            )}
           </div>
+        </div>
+
+        {/* Bio — separate from the magazine */}
+        <div className="max-w-sm md:max-w-md text-center space-y-3 px-2">
+          <p className="text-sm md:text-[15px] leading-relaxed font-light" style={{ color: c.text, opacity: 0.4 }}>
+            A creative project in maximizing timeless, fashion-forward looks from a capsule wardrobe&mdash;specifically, my own closet. Each outfit is sourced from store websites or photographed, then composed in Canva Pro drawn from inspiration across Pinterest, Instagram, film, and everyday life.
+          </p>
+          <p className="text-sm md:text-[15px] leading-relaxed font-light" style={{ color: c.text, opacity: 0.4 }}>
+            What began as a passion project has become one of my most practical and consistently used personal tools&mdash;an ongoing creative outlet with endless possibility within a defined, intentional, and timelessly fashionable wardrobe.
+          </p>
         </div>
       </div>
     );
