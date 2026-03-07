@@ -73,13 +73,16 @@ const writingSamples = [
 function OutfitBoardCard() {
   return (
     <Link href="/closet" className="group block p-5 transition-colors" style={{ backgroundColor: colors.creamAlt }}>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mb-3">
         <div>
           <h4 className="font-serif-display text-lg font-light mb-1" style={{ color: colors.nearBlack }}>Outfit Board</h4>
           <p className="text-sm font-light" style={{ color: colors.warmBrown }}>83 Looks &middot; Capsule Wardrobe Lookbook</p>
         </div>
-        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.softPink }} />
+        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" style={{ color: colors.softPink }} />
       </div>
+      <p className="text-sm leading-relaxed font-light" style={{ color: colors.nearBlack, opacity: 0.6 }}>
+        A creative project in maximizing timeless, fashion-forward looks from a capsule wardrobe&mdash;specifically, my own closet. Each outfit is sourced from store websites or photographed, then composed in Canva Pro drawn from inspiration across Pinterest, Instagram, film, and everyday life.
+      </p>
     </Link>
   );
 }

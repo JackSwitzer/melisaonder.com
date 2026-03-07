@@ -103,17 +103,21 @@ export default function ClosetPage() {
         onClick={openCover}
         role="button"
       >
-        <div className="text-center cursor-pointer group">
+        <div className="text-center cursor-pointer group max-w-md mx-auto px-6">
           <h1 className="font-display text-6xl md:text-8xl font-light tracking-tight" style={{ color: c.pink }}>
             Mel
           </h1>
           <h2 className="font-display text-4xl md:text-6xl italic font-light mt-2" style={{ color: c.text }}>
             Outfit Board
           </h2>
-          <p className="mt-8 text-sm tracking-[0.2em] uppercase font-light" style={{ color: c.brown }}>
+          <p className="mt-6 text-sm tracking-[0.2em] uppercase font-light" style={{ color: c.brown }}>
             {dateStr}
           </p>
-          <p className="mt-10 text-xs tracking-wider opacity-0 group-hover:opacity-40 transition-opacity duration-500" style={{ color: c.text }}>
+          <div className="mt-10 space-y-4 text-sm md:text-[15px] leading-relaxed font-light" style={{ color: c.text, opacity: 0.45 }}>
+            <p>A creative project in maximizing timeless, fashion-forward looks from a capsule wardrobe&mdash;specifically, my own closet. Each outfit is sourced from store websites or photographed, then composed in Canva Pro drawn from inspiration across Pinterest, Instagram, film, and everyday life.</p>
+            <p>What began as a passion project has become one of my most practical and consistently used personal tools&mdash;an ongoing creative outlet with endless possibility within a defined, intentional, and timelessly fashionable wardrobe.</p>
+          </div>
+          <p className="mt-8 text-xs tracking-wider opacity-0 group-hover:opacity-40 transition-opacity duration-500" style={{ color: c.text }}>
             Click to open
           </p>
         </div>
