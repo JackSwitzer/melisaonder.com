@@ -72,28 +72,13 @@ const writingSamples = [
 
 function OutfitBoardCard() {
   return (
-    <Link href="/closet" className="group block">
-      <div className="p-5 transition-all duration-300 group-hover:shadow-lg" style={{ backgroundColor: colors.creamAlt }}>
-
-        <div className="flex items-center justify-between mb-3">
-          <div>
-            <h4 className="font-serif-display text-lg font-light" style={{ color: colors.nearBlack }}>Outfit Board</h4>
-            <p className="text-xs font-light tracking-[0.15em] uppercase mt-1" style={{ color: colors.warmBrown }}>83 Looks &middot; Capsule Wardrobe Lookbook</p>
-          </div>
-          <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.softPink }} />
+    <Link href="/closet" className="group block p-5 transition-colors" style={{ backgroundColor: colors.creamAlt }}>
+      <div className="flex items-center justify-between">
+        <div>
+          <h4 className="font-serif-display text-lg font-light mb-1" style={{ color: colors.nearBlack }}>Outfit Board</h4>
+          <p className="text-sm font-light" style={{ color: colors.warmBrown }}>83 Looks &middot; Capsule Wardrobe Lookbook</p>
         </div>
-        <div className="relative aspect-[16/9] overflow-hidden">
-          <Image
-            src="/outfits/slides/casual-1.jpg"
-            alt="Outfit Board Preview"
-            fill
-            className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-            sizes="(max-width: 768px) 100vw, 600px"
-          />
-        </div>
-        <p className="text-sm leading-relaxed font-light mt-3" style={{ opacity: 0.7 }}>
-          A creative project in maximizing timeless, fashion-forward looks from a capsule wardrobe&mdash;specifically, my own closet. Each outfit is sourced from store websites or photographed, then composed in Canva Pro drawn from inspiration across Pinterest, Instagram, film, and everyday life.
-        </p>
+        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.softPink }} />
       </div>
     </Link>
   );
