@@ -145,8 +145,8 @@ export default function ClosetPage() {
       <div
         ref={containerRef}
         tabIndex={-1}
-        className="outline-none min-h-screen flex flex-col items-center justify-center px-4 py-12 gap-8 md:gap-10"
-        style={{ backgroundColor: c.bg, color: c.text }}
+        className="outline-none flex flex-col items-center justify-center px-4 py-12 gap-8 md:gap-10"
+        style={{ backgroundColor: c.bg, color: c.text, minHeight: '100dvh' }}
       >
         {/* Magazine cover — the clickable book */}
         <div
@@ -223,43 +223,13 @@ export default function ClosetPage() {
     <div
       ref={containerRef}
       tabIndex={-1}
-      className="outline-none h-screen w-screen relative overflow-hidden"
-      style={{ backgroundColor: c.bg }}
+      className="outline-none flex flex-col overflow-hidden"
+      style={{ backgroundColor: c.bg, height: '100dvh' }}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      {/* Current image */}
-      <Image
-        key={look.src}
-        src={look.src}
-        alt={look.title || `Look ${idx + 1}`}
-        fill
-        className="object-contain"
-        sizes="100vw"
-        priority
-      />
-
-      {/* Title overlay for titled looks */}
-      {look.title && (
-        <div
-          className="absolute bottom-0 left-0 right-0 px-5 pb-5 pt-16 z-10"
-          style={{ background: `linear-gradient(to top, ${c.bg}dd, ${c.bg}66, transparent)` }}
-        >
-          <h3 className="font-display text-xl md:text-2xl font-light" style={{ color: c.pink }}>
-            {look.title}
-          </h3>
-        </div>
-      )}
-
-      {/* Counter */}
-      <div className="absolute top-4 right-4 z-20">
-        <span className="text-xs tabular-nums font-light" style={{ color: c.text, opacity: 0.5 }}>
-          {idx + 1} / {total}
-        </span>
-      </div>
-
-      {/* Back */}
-      <div className="absolute top-4 left-4 z-20">
+      {/* Top bar */}
+      <div className="flex items-center justify-between px-4 py-3 shrink-0 z-20 relative">
         <button
           onClick={(e) => { e.stopPropagation(); setShowCover(true); setIdx(0); }}
           className="text-xs tracking-wider font-light hover:opacity-70 transition-opacity"
@@ -267,33 +237,61 @@ export default function ClosetPage() {
         >
           &larr; Back
         </button>
+        <span className="text-xs tabular-nums font-light" style={{ color: c.text, opacity: 0.5 }}>
+          {idx + 1} / {total}
+        </span>
       </div>
 
-      {/* Prev arrow */}
-      {idx > 0 && (
-        <button
-          onClick={(e) => { e.stopPropagation(); goPrev(); }}
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-opacity hover:opacity-80"
-          style={{ backgroundColor: `${c.bg}80`, opacity: 0.4 }}
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke={c.text} strokeWidth="2" className="w-4 h-4">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-      )}
+      {/* Image area — flexes to fill remaining space */}
+      <div className="flex-1 relative min-h-0 mx-2 md:mx-4 mb-2 md:mb-4">
+        <Image
+          key={look.src}
+          src={look.src}
+          alt={look.title || `Look ${idx + 1}`}
+          fill
+          className="object-contain"
+          sizes="100vw"
+          priority
+        />
 
-      {/* Next arrow */}
-      {idx < total - 1 && (
-        <button
-          onClick={(e) => { e.stopPropagation(); goNext(); }}
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full transition-opacity hover:opacity-80"
-          style={{ backgroundColor: `${c.bg}80`, opacity: 0.4 }}
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke={c.text} strokeWidth="2" className="w-4 h-4">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      )}
+        {/* Title overlay for titled looks */}
+        {look.title && (
+          <div
+            className="absolute bottom-0 left-0 right-0 px-4 pb-3 pt-12 z-10"
+            style={{ background: `linear-gradient(to top, ${c.bg}dd, ${c.bg}66, transparent)` }}
+          >
+            <h3 className="font-display text-lg md:text-2xl font-light" style={{ color: c.pink }}>
+              {look.title}
+            </h3>
+          </div>
+        )}
+
+        {/* Prev arrow */}
+        {idx > 0 && (
+          <button
+            onClick={(e) => { e.stopPropagation(); goPrev(); }}
+            className="absolute left-1 md:left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full transition-opacity hover:opacity-80"
+            style={{ backgroundColor: `${c.bg}80`, opacity: 0.4 }}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke={c.text} strokeWidth="2" className="w-4 h-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+        )}
+
+        {/* Next arrow */}
+        {idx < total - 1 && (
+          <button
+            onClick={(e) => { e.stopPropagation(); goNext(); }}
+            className="absolute right-1 md:right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full transition-opacity hover:opacity-80"
+            style={{ backgroundColor: `${c.bg}80`, opacity: 0.4 }}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke={c.text} strokeWidth="2" className="w-4 h-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
+      </div>
     </div>
   );
 }
