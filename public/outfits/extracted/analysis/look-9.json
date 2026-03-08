@@ -1,0 +1,136 @@
+{
+  "id": "look-9",
+  "title": "Denim & Camel Afternoon",
+  "description": "Two relaxed but polished directions share a warm caramel palette: the left pairs a crisp blue button-down shirt with a white mini skirt, tall tan boots, and a classic tan leather tote for an effortless city look, while the center builds around a sleeveless oatmeal turtleneck, low-rise flared jeans, a Miu Miu denim-and-leather bag, and nude platform pumps for a 2000s-inflected casual-chic moment — both outfits tied together with gold jewelry and warm brown accessories.",
+  "category": "casual",
+  "occasion": "weekend brunch, city errands, casual lunch",
+  "colorPalette": ["#C4956A", "#D4C0A8", "#A8BCC8", "#1A1A1A", "#F5F0EB"],
+  "items": [
+    {
+      "file": "item-0.png",
+      "type": "reference_photo",
+      "description": "Editorial cut-out of a brunette woman in a light blue fitted button-down shirt and white mini skirt, posed on a white background — full styled look used as outfit direction reference",
+      "confidence": 0.88
+    },
+    {
+      "file": "item-1.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings (recurring accessory, imageHash 4c5dd7d41f25)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-2.png",
+      "type": "jewelry",
+      "description": "Bering square-face gold watch with slim bracelet (recurring accessory, imageHash 3faf30a0dcf1)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-3.png",
+      "type": "accessory",
+      "description": "Oval cat-eye sunglasses with translucent brown frame and dark brown lenses — slim retro silhouette",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-4.png",
+      "type": "bottom",
+      "description": "White structured mini skirt with asymmetric wrap waistband and small silver hardware detail — product shot on white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-5.jpg",
+      "type": "decorative",
+      "description": "Chalkboard texture background panel (slide backdrop)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-6.png",
+      "type": "shoes",
+      "description": "Tan cognac leather knee-high boot with a stacked block heel (~5cm) and round toe — product shot on white background",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-7.png",
+      "type": "bag",
+      "description": "Large tan leather structured tote bag with postman-lock clasp and front pockets — Mulberry Bayswater style, worn shoulder carry",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-8.png",
+      "type": "top",
+      "description": "Oatmeal/camel sleeveless turtleneck ribbed-knit top — fitted, cropped — product shot on model, white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-9.png",
+      "type": "bottom",
+      "description": "Light wash low-rise bootcut/flared jeans with faded whiskering — product shot on white background",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-10.png",
+      "type": "jewelry",
+      "description": "Chunky gold puffed hoop earrings — thick tubular hoops with a rounded crescent shape",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-11.png",
+      "type": "reference_photo",
+      "description": "Fashion illustration of a young woman in a camel turtleneck knit, jeans, and accessories holding a coffee cup and a denim tote — used as styled look inspiration inside the film strip frame",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-12.png",
+      "type": "jewelry",
+      "description": "Gold cursive 'M' initial pendant necklace on a delicate chain",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-13.png",
+      "type": "jewelry",
+      "description": "Wide dark wood/tortoiseshell-toned bangle bracelet — smooth rounded profile",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-14.png",
+      "type": "jewelry",
+      "description": "Thin gold hinged bangle bracelet — shown at rotation 326° in the collage layout",
+      "confidence": 0.96
+    },
+    {
+      "file": "item-15.png",
+      "type": "decorative",
+      "description": "Film strip / analog photo frame overlay (imageHash 99be707ec6c0) — decorative collage element",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-16.png",
+      "type": "bag",
+      "description": "Miu Miu denim tote bag with brown leather handles, belt-buckle straps, and leopard-print interior detail — structured handheld or shoulder bag",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-17.png",
+      "type": "accessory",
+      "description": "Light sand/beige lightweight gauze scarf — long rectangular wrap with airy drape",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-18.png",
+      "type": "shoes",
+      "description": "Tan caramel leather platform stiletto pump — rounded toe, high stiletto heel (~11cm) with a subtle platform lift",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-19.png",
+      "type": "accessory",
+      "description": "Gold oval hair barrette/clip — matte brushed gold finish, classic French clip style",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-20.png",
+      "type": "decorative",
+      "description": "Leopard print swatch/tag — decorative collage element referencing the bag's interior lining pattern",
+      "confidence": 0.88
+    }
+  ]
+}

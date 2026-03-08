@@ -1,0 +1,154 @@
+{
+  "id": "look-6",
+  "title": "Chocolate & Cream Layers",
+  "description": "Two cozy autumn looks anchored by chocolate brown: look one pairs a cream half-zip knit and lace bra over a white ruffle mini skirt with over-the-knee brown boots and gold accessories for a playful feminine edge; look two swaps in a fitted brown boat-neck top and faux-fur jacket over black leggings with a black knee boot, plaid scarf, and dark glasses for a sleek moody city outfit.",
+  "category": "casual",
+  "occasion": "weekend city walk, autumn brunch, coffee run",
+  "colorPalette": ["#4A2C1A", "#F5EFE6", "#1A1A1A", "#C9A882", "#D4B896"],
+  "items": [
+    {
+      "file": "item-0.jpg",
+      "type": "decorative",
+      "description": "Chalkboard texture background panel (slide backdrop)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-1.png",
+      "type": "reference_photo",
+      "description": "Editorial reference — person seated wearing a cream knit cardigan open over a white ruffle mini skirt, wristwatch visible, soft interior setting",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-2.png",
+      "type": "decorative",
+      "description": "Film strip / analog photo frame overlay (blank frame, no fashion content)",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-3.png",
+      "type": "top",
+      "description": "Oatmeal/cream half-zip collared knit sweater with ribbed cuffs and hem, relaxed fit, product shot on white background",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-4.png",
+      "type": "bottom",
+      "description": "White tiered ruffle mini skirt with elasticated waistband, worn on model with white sneakers, product shot",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-5.png",
+      "type": "bag",
+      "description": "Oversized chocolate brown distressed leather tote bag with twin shoulder straps",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-6.png",
+      "type": "top",
+      "description": "Cream/ivory lace underwire push-up bra, worn as a visible layering piece under the open knit sweater",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-7.png",
+      "type": "accessory",
+      "description": "Cream ribbed over-the-knee socks; shown flipped/mirrored (rotation 180) in the collage layout",
+      "confidence": 0.92
+    },
+    {
+      "file": "item-8.png",
+      "type": "shoes",
+      "description": "Chocolate brown leather knee-high boot with a square toe and flared block heel (~8cm), product shot on white background",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-9.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings (recurring accessory, imageHash 4c5dd7d41f25)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-10.png",
+      "type": "jewelry",
+      "description": "Bering square-face gold watch with gold bracelet (recurring accessory, imageHash 3faf30a0dcf1)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-11.png",
+      "type": "jewelry",
+      "description": "Gold 'M' initial script pendant necklace on a delicate gold chain",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-12.png",
+      "type": "accessory",
+      "description": "Tory Burch oversized tortoiseshell butterfly-frame sunglasses with gradient brown lenses and gold logo hardware",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-13.png",
+      "type": "outerwear",
+      "description": "Dark chocolate brown faux-fur cropped jacket with wide lapels, product shot on white background",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-14.png",
+      "type": "top",
+      "description": "Chocolate brown fitted long-sleeve boat-neck top (product shot on model, white background; appeared in look-3 as item-5, imageHash 2ce0393c6fe0)",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-15.png",
+      "type": "accessory",
+      "description": "Cream ribbed over-the-knee socks; duplicate of item-7 (same imageHash a94429e6a7e7), also shown flipped/mirrored (rotation 180), used as second collage placement",
+      "confidence": 0.92
+    },
+    {
+      "file": "item-16.png",
+      "type": "shoes",
+      "description": "Black leather-and-stretch-panel tall knee-high boot with a low square block heel (~5cm), product shot on white background",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-17.png",
+      "type": "accessory",
+      "description": "Black cable-knit wool gloves with ribbed cuff; shown flipped/mirrored (rotation 180) in the collage layout",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-18.png",
+      "type": "bag",
+      "description": "Oversized chocolate brown distressed leather tote bag; duplicate of item-5 (same imageHash e3702426676a), used as second collage placement",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-19.png",
+      "type": "accessory",
+      "description": "Brown and cream plaid brushed wool scarf with long fringe ends",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-20.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings; duplicate of item-9 (same imageHash 4c5dd7d41f25), used as second collage placement",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-21.png",
+      "type": "shoes",
+      "description": "Black leather knee-high boot with stretch back panel and low block heel (~5cm), product shot on white background",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-22.png",
+      "type": "jewelry",
+      "description": "Bering square-face gold watch; duplicate of item-10 (same imageHash 3faf30a0dcf1), used as second collage placement",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-23.png",
+      "type": "accessory",
+      "description": "Dark navy/charcoal blue-light blocking glasses with rounded cat-eye acetate frames, product shot on white background",
+      "confidence": 0.96
+    }
+  ]
+}

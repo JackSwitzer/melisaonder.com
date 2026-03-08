@@ -1,0 +1,130 @@
+{
+  "id": "look-11",
+  "title": "Moto & Mini",
+  "description": "Two directions share the same brown leather boot anchor: one look pairs a white off-shoulder top, black boyshort, and UGG ankle boots with a black Miu Miu bag for a cool off-duty mix; the other builds a night-ready outfit around a white strapless ruffled mini dress under a Schott distressed leather moto jacket with knee-high chocolate brown heeled boots and a brown baguette bag — both directions united by a warm caramel and dark brown palette.",
+  "category": "casual",
+  "occasion": "weekend outing, evening date, city street style",
+  "colorPalette": ["#3B1F10", "#F5F0EB", "#1A1A1A", "#C8A882", "#8B5E3C"],
+  "items": [
+    {
+      "file": "item-0.jpg",
+      "type": "decorative",
+      "description": "Chalkboard texture background panel (slide backdrop)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-1.png",
+      "type": "reference_photo",
+      "description": "Street style reference — young woman in white off-shoulder ribbed top, distressed denim micro shorts, UGG ankle boots, and black crossbody bag, walking outdoors",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-2.png",
+      "type": "decorative",
+      "description": "Film strip / analog photo frame overlay (decorative collage element)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-3.png",
+      "type": "top",
+      "description": "White ribbed off-shoulder long-sleeve fitted knit top, product shot on white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-4.png",
+      "type": "bottom",
+      "description": "Black seamless low-rise boyshort underwear/shorts, product shot on white background",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-5.png",
+      "type": "top",
+      "description": "White lace floral push-up underwire bra with adjustable straps, product shot on white background",
+      "confidence": 0.92
+    },
+    {
+      "file": "item-6.png",
+      "type": "accessory",
+      "description": "White cream slouchy ribbed scrunch socks, product shot on white background",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-7.png",
+      "type": "bag",
+      "description": "Black Miu Miu vitello lux structured top-handle satchel with silver hardware, ring details, and detachable crossbody strap",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-8.png",
+      "type": "shoes",
+      "description": "Sand/caramel UGG Classic Ultra Mini ankle boot in suede with sherpa lining and flat platform sole, product shot on white background",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-9.png",
+      "type": "accessory",
+      "description": "Brown tortoiseshell Tory Burch oversized butterfly/oval sunglasses with gold logo hardware, shown as double product shot",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-10.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings, polished finish",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-11.png",
+      "type": "jewelry",
+      "description": "Timex oval-face gold-tone watch with expansion bracelet band",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-12.png",
+      "type": "outerwear",
+      "description": "Dark brown Schott NYC distressed leather moto jacket with spread collar, zip front, and worn patina finish, product shot on white background",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-13.png",
+      "type": "dress",
+      "description": "White strapless ruffled tiered mini dress worn by model on white background — product shot; structured bodice with layered chiffon ruffle skirt",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-14.png",
+      "type": "accessory",
+      "description": "White ribbed knee-high sock with lace/crochet trim at cuff, shown angled (rotation ~312 degrees) as a collage placement",
+      "confidence": 0.93
+    },
+    {
+      "file": "item-15.png",
+      "type": "shoes",
+      "description": "Dark chocolate brown knee-high smooth leather boot with pointed toe and flared block heel (~8cm), product shot on white background",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-16.png",
+      "type": "bag",
+      "description": "Dark brown faux-leather shoulder baguette bag with flap closure, gold buckle hardware, and adjustable strap",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-17.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings (duplicate of item-10, used as a second collage placement)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-18.png",
+      "type": "jewelry",
+      "description": "Bering square-face gold-tone watch with white dial and gold link bracelet band",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-19.png",
+      "type": "accessory",
+      "description": "Brown oval cat-eye optical frames / reading glasses with thin plastic frame",
+      "confidence": 0.96
+    }
+  ]
+}

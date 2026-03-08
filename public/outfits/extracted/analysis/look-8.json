@@ -1,0 +1,136 @@
+{
+  "id": "look-8",
+  "title": "Soft White & Black Edge",
+  "description": "Two looks sharing a quiet, monochromatic palette: look one layers a white baby-doll cami over white ruffle shorts with a tan leather tote and cognac knee boots for a soft, dreamy off-duty look; look two pairs a white long-sleeve crew-neck top with black leggings, a black shoulder bag, and a black knee-high boot, wrapped in a cream fringe scarf and gold-framed sunglasses for a polished minimal city look — a street-style editorial reference anchors the white-on-white direction.",
+  "category": "casual",
+  "occasion": "city stroll, casual day out, weekend errands",
+  "colorPalette": ["#F5F0E8", "#1A1A1A", "#B8895A", "#D4C9B0", "#C9A060"],
+  "items": [
+    {
+      "file": "item-0.png",
+      "type": "top",
+      "description": "White/cream long-sleeve crew-neck fitted top, flat-lay product shot on white background",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-1.jpg",
+      "type": "decorative",
+      "description": "Chalkboard texture background panel (slide backdrop)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-2.png",
+      "type": "reference_photo",
+      "description": "Editorial reference — model in profile wearing a large cream/ivory oversized scarf or wrap, wearing gold oval sunglasses, cutout on transparent background",
+      "confidence": 0.93
+    },
+    {
+      "file": "item-3.png",
+      "type": "jewelry",
+      "description": "Small gold chunky tube hoop earrings (thick rounded hoop, smaller than the recurring large thin hoops)",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-4.png",
+      "type": "decorative",
+      "description": "Film strip / analog photo frame overlay (decorative collage element, imageHash 5e1cd7a5e8f8)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-5.png",
+      "type": "bottom",
+      "description": "Black high-waist seamless leggings, product shot on model, white background",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-6.png",
+      "type": "accessory",
+      "description": "Black fabric headband/hair band, slightly rotated in the collage layout (rotation 31.6°)",
+      "confidence": 0.93
+    },
+    {
+      "file": "item-7.png",
+      "type": "accessory",
+      "description": "Gold metal oval-frame sunglasses with green-tinted lenses and gold temple arms (Celine-style retro silhouette)",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-8.png",
+      "type": "accessory",
+      "description": "Cream/ivory wool fringe scarf, solid colour with tassel ends",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-9.png",
+      "type": "jewelry",
+      "description": "Bering square-face gold watch with gold bracelet (recurring accessory, imageHash 3faf30a0dcf1)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-10.png",
+      "type": "bag",
+      "description": "Black smooth leather minimalist shoulder bag with a single thin strap and structured base",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-11.png",
+      "type": "shoes",
+      "description": "Black leather knee-high boot with stretch back panel and low block heel (~5cm), product shot on white background (imageHash df1f8d9e8669, also appears in look-6 item-21 and look-7 item-16)",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-12.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings (recurring accessory, imageHash 4c5dd7d41f25)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-13.png",
+      "type": "jewelry",
+      "description": "Gold bangle-style ring or thin bracelet, small product shot, slightly rotated in collage (rotation 333.25°)",
+      "confidence": 0.88
+    },
+    {
+      "file": "item-14.png",
+      "type": "top",
+      "description": "White sheer cotton spaghetti-strap baby-doll cami top with empire waist, product shot on white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-15.png",
+      "type": "accessory",
+      "description": "Cream ribbed over-the-knee socks; shown flipped/mirrored (rotation 180) in the collage layout (imageHash a94429e6a7e7, same as look-6 items 7 and 15)",
+      "confidence": 0.92
+    },
+    {
+      "file": "item-16.png",
+      "type": "bag",
+      "description": "Camel/tan suede-look drawstring tote bag with twin shoulder straps and a tie closure",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-17.png",
+      "type": "reference_photo",
+      "description": "Personal reference photo — person in a white baby-doll cami with white ruffle shorts and brown studded ankle boots, full-length mirror selfie on transparent/white background",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-18.png",
+      "type": "accessory",
+      "description": "Rounded oval slim-frame sunglasses with translucent brown acetate and brown lenses",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-19.png",
+      "type": "accessory",
+      "description": "Rounded oval slim-frame sunglasses with translucent brown acetate and brown lenses; duplicate of look-7 item-3 (same imageHash 085c50c1546b), used as second collage placement",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-20.png",
+      "type": "shoes",
+      "description": "Tan/cognac leather mid-calf boot with a rounded toe and low stacked block heel (~4cm), product shot on white background",
+      "confidence": 0.99
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "id": "look-3",
+  "title": "Fur & Chocolate",
+  "description": "Rich chocolate browns anchored by faux fur coats — either dark or cream — paired with flare pants, knee-high boots, a worn leather tote, and soft blush accessories for a luxe yet approachable winter casual look.",
+  "category": "casual",
+  "occasion": "weekend errands, city strolls, casual lunch, winter outings",
+  "colorPalette": ["#3B2015", "#F5EAD7", "#F2C8B8", "#1A1A1A", "#C8965A"],
+  "items": [
+    {
+      "file": "item-0.jpg",
+      "type": "decorative",
+      "description": "Dark chalkboard/blackboard textured background panel, used as a decorative backdrop element on the right side of the collage",
+      "confidence": 0.9
+    },
+    {
+      "file": "item-1.png",
+      "type": "outerwear",
+      "description": "Short cropped dark chocolate brown faux fur coat with wide lapels",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-2.png",
+      "type": "accessory",
+      "description": "Tortoiseshell oversized oval sunglasses with brown gradient lenses and gold logo detail",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-3.png",
+      "type": "reference_photo",
+      "description": "Street style reference photo of a woman in a brown fur coat with white knit scarf, white mittens, and black bag, carrying flowers",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-4.png",
+      "type": "reference_photo",
+      "description": "Street style reference photo of a woman in a dark shaggy fur coat, sunglasses, and leather micro shorts with a belt",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-5.png",
+      "type": "top",
+      "description": "Fitted chocolate brown long-sleeve boat-neck top, product shot on white background",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-6.png",
+      "type": "bottom",
+      "description": "Black fold-over waistband flare yoga pants with a slight bootcut silhouette",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-7.png",
+      "type": "bag",
+      "description": "Sleek black structured shoulder bag with a long single strap and curved body",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-8.png",
+      "type": "accessory",
+      "description": "Blush pink pashmina wrap scarf with fringed ends",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-9.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-10.png",
+      "type": "jewelry",
+      "description": "Vintage-style gold oval-face Timex watch with a gold expansion bracelet band",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-11.png",
+      "type": "accessory",
+      "description": "Blush pink cable-knit mittens with a cuffed wrist band",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-12.png",
+      "type": "accessory",
+      "description": "Blush pink cable-knit mittens (duplicate of item-11, shown at a rotated angle in the collage layout)",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-13.png",
+      "type": "outerwear",
+      "description": "Short cream/ivory fluffy faux fur coat with an oversized lapel collar",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-14.png",
+      "type": "top",
+      "description": "White/off-white long-sleeve crew-neck fitted top in a lightweight knit",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-15.png",
+      "type": "bottom",
+      "description": "White fold-over waistband flare pants, matching silhouette to item-6 in a white colorway",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-16.png",
+      "type": "bag",
+      "description": "Large distressed dark brown leather slouchy tote bag with dual handles",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-17.png",
+      "type": "shoes",
+      "description": "Dark chocolate brown knee-high leather boots with a square toe and a sculpted block heel",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-18.png",
+      "type": "accessory",
+      "description": "Tortoiseshell oversized oval sunglasses with brown gradient lenses (duplicate of item-2, used as a second placement in the collage)",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-19.png",
+      "type": "jewelry",
+      "description": "Gold Bering square-face minimalist watch on a gold link bracelet band",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-20.png",
+      "type": "jewelry",
+      "description": "Chunky polished gold open hoop earrings",
+      "confidence": 0.96
+    },
+    {
+      "file": "item-21.png",
+      "type": "decorative",
+      "description": "Film strip / analog photo frame border graphic used as a decorative frame overlay in the collage",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-22.png",
+      "type": "shoes",
+      "description": "Black knee-high boots with a block heel and stretch panel back",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-23.png",
+      "type": "accessory",
+      "description": "Blush pink pashmina wrap scarf with fringed ends (duplicate of item-8, used as a second placement in the collage)",
+      "confidence": 0.97
+    }
+  ]
+}

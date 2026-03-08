@@ -1,0 +1,118 @@
+{
+  "id": "look-5",
+  "title": "Noir & Cream Duality",
+  "description": "A two-look editorial pairing an all-black winter athleisure set — structured zip jacket, leggings, trapper hat, and Timberland boots — against a soft feminine ensemble of a sheer white babydoll top, white mini skirt, brown leather bag, and gold jewelry, connected by an oval-sunglass through-line.",
+  "category": "casual",
+  "occasion": "weekend errands, cold-weather layering, city casual, editorial styling",
+  "colorPalette": ["#1A1A1A", "#FFFFFF", "#6B4226", "#D4AF37", "#EAC4B1"],
+  "items": [
+    {
+      "file": "item-0.jpg",
+      "type": "decorative",
+      "description": "Dark chalkboard texture background panel used as a layout backdrop element",
+      "confidence": 0.82
+    },
+    {
+      "file": "item-1.png",
+      "type": "reference_photo",
+      "description": "Side-profile photo of a woman with long hair wearing a fur pom-pom beanie and denim jacket",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-2.png",
+      "type": "outerwear",
+      "description": "Black structured zip-up athletic jacket with seam detailing and zip pockets",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-3.png",
+      "type": "bottom",
+      "description": "Black high-waist seamless leggings with wide waistband",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-4.png",
+      "type": "top",
+      "description": "Black V-neck spaghetti-strap cami with built-in bra detail",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-5.png",
+      "type": "accessory",
+      "description": "Black leather and fur ushanka trapper hat with ear flaps",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-6.png",
+      "type": "accessory",
+      "description": "Black cable-knit wool gloves",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-7.png",
+      "type": "jewelry",
+      "description": "Large gold thin-tube hoop earrings",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-8.png",
+      "type": "shoes",
+      "description": "Black suede lace-up ankle boots with lug sole (Timberland-style)",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-9.png",
+      "type": "decorative",
+      "description": "Film strip negative frame border used as a layout framing element",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-10.png",
+      "type": "top",
+      "description": "White sheer babydoll cami top with gathered empire waist",
+      "confidence": 0.96
+    },
+    {
+      "file": "item-11.png",
+      "type": "bottom",
+      "description": "White structured low-rise mini skirt with asymmetric belt tab detail",
+      "confidence": 0.96
+    },
+    {
+      "file": "item-12.png",
+      "type": "bag",
+      "description": "Brown leather buckle-front crossbody baguette bag with long strap",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-13.png",
+      "type": "shoes",
+      "description": "White leather square-toe open-toe mule with a curved flared mid-height heel (~6cm)",
+      "confidence": 0.96
+    },
+    {
+      "file": "item-14.png",
+      "type": "jewelry",
+      "description": "Gold 'M' initial script letter pendant necklace on delicate chain",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-15.png",
+      "type": "accessory",
+      "description": "Brown oval cat-eye sunglasses with translucent brown frames",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-16.png",
+      "type": "jewelry",
+      "description": "Large gold thin-tube hoop earrings (duplicate of item-7)",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-17.png",
+      "type": "jewelry",
+      "description": "Gold square-case Bering wristwatch with white dial and gold link bracelet",
+      "confidence": 0.97
+    }
+  ]
+}
