@@ -46,17 +46,28 @@ function buildAllLooks(): Look[] {
 
 const allLooks = buildAllLooks();
 
-/* track which images are loaded for progressive display */
+/* progressive image loader — max concurrent, sequential drip */
 const loaded = new Set<string>();
+let inFlight = 0;
+const MAX_CONCURRENT = 10;
 
 function preloadImage(src: string): Promise<void> {
   if (loaded.has(src)) return Promise.resolve();
+  if (inFlight >= MAX_CONCURRENT) return Promise.resolve();
+  inFlight++;
   return new Promise((resolve) => {
     const img = new window.Image();
-    img.onload = () => { loaded.add(src); resolve(); };
-    img.onerror = () => resolve();
+    img.onload = () => { loaded.add(src); inFlight--; resolve(); };
+    img.onerror = () => { inFlight--; resolve(); };
     img.src = src;
   });
+}
+
+/* drip-load a list sequentially, one at a time */
+async function drip(srcs: string[]) {
+  for (const src of srcs) {
+    await preloadImage(src);
+  }
 }
 
 export default function ClosetPage() {
@@ -73,20 +84,20 @@ export default function ClosetPage() {
     year: 'numeric',
   });
 
-  /* aggressive preload on mount: first 10 images + cover transition */
+  /* phase 1: load first image immediately, then drip 1-4 while on cover */
   useEffect(() => {
-    const batch = allLooks.slice(0, 10).map((l) => preloadImage(l.src));
-    Promise.all(batch).then(() => setReady(true));
+    preloadImage(allLooks[0].src).then(() => {
+      setReady(true);
+      drip(allLooks.slice(1, 5).map((l) => l.src));
+    });
   }, []);
 
-  /* preload window around current index */
+  /* phase 2: when slideshow opens, drip-load ahead of current position */
   useEffect(() => {
     if (showCover) return;
-    const start = Math.max(0, idx - 2);
-    const end = Math.min(total - 1, idx + 5);
-    for (let i = start; i <= end; i++) {
-      preloadImage(allLooks[i].src);
-    }
+    const ahead = allLooks.slice(idx, Math.min(idx + 8, total)).map((l) => l.src);
+    const behind = idx > 0 ? [allLooks[idx - 1].src] : [];
+    drip([...behind, ...ahead]);
   }, [idx, total, showCover]);
 
   const openCover = useCallback(() => {
@@ -154,10 +165,10 @@ export default function ClosetPage() {
           role="button"
           tabIndex={0}
           onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCover(); } }}
-          className="group relative w-full max-w-[280px] md:max-w-[340px] cursor-pointer outline-none shrink-0"
+          className="group relative w-[60vw] max-w-[340px] cursor-pointer outline-none shrink-0"
           style={{
             aspectRatio: '3 / 4',
-            maxHeight: '55vh',
+            maxHeight: '50vh',
           }}
         >
           <div
