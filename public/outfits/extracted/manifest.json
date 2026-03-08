@@ -1,0 +1,585 @@
+{
+  "slideWidth": 1920,
+  "slideHeight": 1080,
+  "looks": [
+    {
+      "id": "look-3",
+      "slideIndex": 2,
+      "backgroundColor": null,
+      "items": [
+        {
+          "file": "item-0.jpg",
+          "left": 1133,
+          "top": 295,
+          "width": 1085,
+          "height": 488,
+          "rotation": 90.0,
+          "zIndex": 0
+        },
+        {
+          "file": "item-1.png",
+          "left": 0,
+          "top": -3,
+          "width": 625,
+          "height": 822,
+          "rotation": 0.0,
+          "zIndex": 1
+        },
+        {
+          "file": "item-2.png",
+          "left": 446,
+          "top": 69,
+          "width": 256,
+          "height": 139,
+          "rotation": 0.0,
+          "zIndex": 2
+        },
+        {
+          "file": "item-3.png",
+          "left": 1464,
+          "top": 30,
+          "width": 428,
+          "height": 493,
+          "rotation": 0.0,
+          "zIndex": 3
+        },
+        {
+          "file": "item-4.png",
+          "left": 1574,
+          "top": 321,
+          "width": 336,
+          "height": 393,
+          "rotation": 0.0,
+          "zIndex": 4
+        },
+        {
+          "file": "item-5.png",
+          "left": 90,
+          "top": 170,
+          "width": 534,
+          "height": 669,
+          "rotation": 0.0,
+          "zIndex": 5
+        },
+        {
+          "file": "item-6.png",
+          "left": 359,
+          "top": 449,
+          "width": 357,
+          "height": 971,
+          "rotation": 0.0,
+          "zIndex": 6
+        },
+        {
+          "file": "item-7.png",
+          "left": 137,
+          "top": 553,
+          "width": 351,
+          "height": 499,
+          "rotation": 0.0,
+          "zIndex": 7
+        },
+        {
+          "file": "item-8.png",
+          "left": -46,
+          "top": 474,
+          "width": 224,
+          "height": 671,
+          "rotation": 0.0,
+          "zIndex": 8
+        },
+        {
+          "file": "item-9.png",
+          "left": 523,
+          "top": 178,
+          "width": 125,
+          "height": 168,
+          "rotation": 0.0,
+          "zIndex": 9
+        },
+        {
+          "file": "item-10.png",
+          "left": 599,
+          "top": 207,
+          "width": 54,
+          "height": 113,
+          "rotation": 0.0,
+          "zIndex": 10
+        },
+        {
+          "file": "item-11.png",
+          "left": 554,
+          "top": 355,
+          "width": 144,
+          "height": 288,
+          "rotation": 180.0,
+          "zIndex": 11
+        },
+        {
+          "file": "item-12.png",
+          "left": 441,
+          "top": 355,
+          "width": 179,
+          "height": 288,
+          "rotation": 193.70393333333334,
+          "zIndex": 12
+        },
+        {
+          "file": "item-13.png",
+          "left": 713,
+          "top": 10,
+          "width": 670,
+          "height": 719,
+          "rotation": 0.0,
+          "zIndex": 13
+        },
+        {
+          "file": "item-14.png",
+          "left": 760,
+          "top": 157,
+          "width": 527,
+          "height": 667,
+          "rotation": 0.0,
+          "zIndex": 14
+        },
+        {
+          "file": "item-15.png",
+          "left": 1065,
+          "top": 449,
+          "width": 368,
+          "height": 924,
+          "rotation": 0.0,
+          "zIndex": 15
+        },
+        {
+          "file": "item-16.png",
+          "left": 789,
+          "top": 502,
+          "width": 398,
+          "height": 558,
+          "rotation": 6.254183333333334,
+          "zIndex": 16
+        },
+        {
+          "file": "item-17.png",
+          "left": 716,
+          "top": 553,
+          "width": 303,
+          "height": 527,
+          "rotation": 0.0,
+          "zIndex": 17
+        },
+        {
+          "file": "item-18.png",
+          "left": 1164,
+          "top": 175,
+          "width": 268,
+          "height": 145,
+          "rotation": 0.0,
+          "zIndex": 18
+        },
+        {
+          "file": "item-19.png",
+          "left": 1238,
+          "top": 64,
+          "width": 55,
+          "height": 132,
+          "rotation": 0.0,
+          "zIndex": 19
+        },
+        {
+          "file": "item-20.png",
+          "left": 1290,
+          "top": 102,
+          "width": 99,
+          "height": 68,
+          "rotation": 0.0,
+          "zIndex": 20
+        },
+        {
+          "file": "item-21.png",
+          "left": 1443,
+          "top": 10,
+          "width": 468,
+          "height": 719,
+          "rotation": 0.0,
+          "zIndex": 21
+        },
+        {
+          "file": "item-22.png",
+          "left": 0,
+          "top": 511,
+          "width": 344,
+          "height": 569,
+          "rotation": 0.0,
+          "zIndex": 22
+        },
+        {
+          "file": "item-23.png",
+          "left": 165,
+          "top": 474,
+          "width": 169,
+          "height": 671,
+          "rotation": 0.0,
+          "zIndex": 23
+        }
+      ]
+    },
+    {
+      "id": "look-4",
+      "slideIndex": 3,
+      "backgroundColor": null,
+      "items": [
+        {
+          "file": "item-0.png",
+          "left": 703,
+          "top": 10,
+          "width": 670,
+          "height": 719,
+          "rotation": 0.0,
+          "zIndex": 0
+        },
+        {
+          "file": "item-1.png",
+          "left": 1238,
+          "top": 64,
+          "width": 55,
+          "height": 132,
+          "rotation": 0.0,
+          "zIndex": 1
+        },
+        {
+          "file": "item-2.png",
+          "left": 1290,
+          "top": 102,
+          "width": 99,
+          "height": 68,
+          "rotation": 0.0,
+          "zIndex": 2
+        },
+        {
+          "file": "item-3.jpg",
+          "left": 1133,
+          "top": 295,
+          "width": 1085,
+          "height": 488,
+          "rotation": 90.0,
+          "zIndex": 3
+        },
+        {
+          "file": "item-4.png",
+          "left": 1453,
+          "top": 108,
+          "width": 446,
+          "height": 609,
+          "rotation": 0.0,
+          "zIndex": 4
+        },
+        {
+          "file": "item-5.png",
+          "left": 772,
+          "top": 196,
+          "width": 520,
+          "height": 644,
+          "rotation": 0.0,
+          "zIndex": 5
+        },
+        {
+          "file": "item-6.png",
+          "left": 1164,
+          "top": 175,
+          "width": 268,
+          "height": 145,
+          "rotation": 0.0,
+          "zIndex": 6
+        },
+        {
+          "file": "item-7.png",
+          "left": 984,
+          "top": 299,
+          "width": 449,
+          "height": 797,
+          "rotation": 0.0,
+          "zIndex": 7
+        },
+        {
+          "file": "item-8.png",
+          "left": 801,
+          "top": 466,
+          "width": 398,
+          "height": 558,
+          "rotation": 6.254183333333334,
+          "zIndex": 8
+        },
+        {
+          "file": "item-9.png",
+          "left": 703,
+          "top": 522,
+          "width": 320,
+          "height": 558,
+          "rotation": 0.0,
+          "zIndex": 9
+        },
+        {
+          "file": "item-10.png",
+          "left": 1443,
+          "top": 10,
+          "width": 468,
+          "height": 719,
+          "rotation": 0.0,
+          "zIndex": 10
+        },
+        {
+          "file": "item-11.png",
+          "left": 92,
+          "top": 66,
+          "width": 44,
+          "height": 47,
+          "rotation": 0.0,
+          "zIndex": 11
+        },
+        {
+          "file": "item-12.png",
+          "left": 0,
+          "top": 31,
+          "width": 555,
+          "height": 781,
+          "rotation": 0.0,
+          "zIndex": 12
+        },
+        {
+          "file": "item-13.png",
+          "left": 376,
+          "top": 166,
+          "width": 299,
+          "height": 133,
+          "rotation": 0.0,
+          "zIndex": 13
+        },
+        {
+          "file": "item-14.png",
+          "left": 0,
+          "top": 634,
+          "width": 363,
+          "height": 437,
+          "rotation": 0.0,
+          "zIndex": 14
+        },
+        {
+          "file": "item-15.png",
+          "left": 372,
+          "top": 0,
+          "width": 121,
+          "height": 162,
+          "rotation": 0.0,
+          "zIndex": 15
+        },
+        {
+          "file": "item-16.png",
+          "left": 470,
+          "top": 48,
+          "width": 45,
+          "height": 114,
+          "rotation": 0.0,
+          "zIndex": 16
+        },
+        {
+          "file": "item-17.png",
+          "left": 549,
+          "top": 7,
+          "width": 154,
+          "height": 202,
+          "rotation": 0.0,
+          "zIndex": 17
+        },
+        {
+          "file": "item-18.png",
+          "left": 445,
+          "top": 498,
+          "width": 327,
+          "height": 516,
+          "rotation": 0.0,
+          "zIndex": 18
+        },
+        {
+          "file": "item-19.png",
+          "left": 348,
+          "top": 570,
+          "width": 355,
+          "height": 512,
+          "rotation": 0.0,
+          "zIndex": 19
+        }
+      ]
+    },
+    {
+      "id": "look-5",
+      "slideIndex": 4,
+      "backgroundColor": null,
+      "items": [
+        {
+          "file": "item-0.jpg",
+          "left": 1132,
+          "top": 295,
+          "width": 1085,
+          "height": 488,
+          "rotation": 90.0,
+          "zIndex": 0
+        },
+        {
+          "file": "item-1.png",
+          "left": 1462,
+          "top": 30,
+          "width": 438,
+          "height": 676,
+          "rotation": 0.0,
+          "zIndex": 1
+        },
+        {
+          "file": "item-2.png",
+          "left": -18,
+          "top": -17,
+          "width": 552,
+          "height": 734,
+          "rotation": 0.0,
+          "zIndex": 2
+        },
+        {
+          "file": "item-3.png",
+          "left": 351,
+          "top": 278,
+          "width": 365,
+          "height": 802,
+          "rotation": 0.0,
+          "zIndex": 3
+        },
+        {
+          "file": "item-4.png",
+          "left": 97,
+          "top": 108,
+          "width": 386,
+          "height": 571,
+          "rotation": 0.0,
+          "zIndex": 4
+        },
+        {
+          "file": "item-5.png",
+          "left": 169,
+          "top": 567,
+          "width": 352,
+          "height": 405,
+          "rotation": 0.0,
+          "zIndex": 5
+        },
+        {
+          "file": "item-6.png",
+          "left": 484,
+          "top": 23,
+          "width": 219,
+          "height": 301,
+          "rotation": 180.0,
+          "zIndex": 6
+        },
+        {
+          "file": "item-7.png",
+          "left": 420,
+          "top": 18,
+          "width": 125,
+          "height": 168,
+          "rotation": 0.0,
+          "zIndex": 7
+        },
+        {
+          "file": "item-8.png",
+          "left": 0,
+          "top": 732,
+          "width": 392,
+          "height": 350,
+          "rotation": 0.0,
+          "zIndex": 8
+        },
+        {
+          "file": "item-9.png",
+          "left": 1443,
+          "top": 10,
+          "width": 468,
+          "height": 722,
+          "rotation": 0.0,
+          "zIndex": 9
+        },
+        {
+          "file": "item-10.png",
+          "left": 717,
+          "top": -1,
+          "width": 563,
+          "height": 642,
+          "rotation": 0.0,
+          "zIndex": 10
+        },
+        {
+          "file": "item-11.png",
+          "left": 818,
+          "top": 623,
+          "width": 614,
+          "height": 449,
+          "rotation": 0.0,
+          "zIndex": 11
+        },
+        {
+          "file": "item-12.png",
+          "left": 1115,
+          "top": 226,
+          "width": 317,
+          "height": 528,
+          "rotation": 0.0,
+          "zIndex": 12
+        },
+        {
+          "file": "item-13.png",
+          "left": 717,
+          "top": 912,
+          "width": 425,
+          "height": 168,
+          "rotation": 0.0,
+          "zIndex": 13
+        },
+        {
+          "file": "item-14.png",
+          "left": 1118,
+          "top": 5,
+          "width": 283,
+          "height": 349,
+          "rotation": 0.0,
+          "zIndex": 14
+        },
+        {
+          "file": "item-15.png",
+          "left": 717,
+          "top": 619,
+          "width": 326,
+          "height": 120,
+          "rotation": 0.0,
+          "zIndex": 15
+        },
+        {
+          "file": "item-16.png",
+          "left": 1254,
+          "top": 5,
+          "width": 147,
+          "height": 197,
+          "rotation": 0.0,
+          "zIndex": 16
+        },
+        {
+          "file": "item-17.png",
+          "left": 1351,
+          "top": 50,
+          "width": 57,
+          "height": 137,
+          "rotation": 0.0,
+          "zIndex": 17
+        }
+      ]
+    }
+  ]
+}
