@@ -24,6 +24,51 @@ export default function ClosetPage() {
       className="outline-none flex flex-col items-center justify-center px-4 py-12 gap-8 md:gap-10"
       style={{ backgroundColor: c.bg, color: c.text, minHeight: '100dvh' }}
     >
+      {/* Full-screen Coming Soon overlay */}
+      {opened && (
+        <div
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center"
+          style={{ backgroundColor: c.bg }}
+          onClick={() => setOpened(false)}
+        >
+          {/* Decorative border */}
+          <div
+            className="absolute inset-4 md:inset-8 pointer-events-none"
+            style={{ border: `1px solid ${c.brown}15` }}
+          />
+
+          <p
+            className="text-[10px] tracking-[0.4em] uppercase mb-8"
+            style={{ color: c.brown, opacity: 0.5 }}
+          >
+            A Capsule Wardrobe Lookbook
+          </p>
+
+          <h2
+            className="font-serif-display text-5xl md:text-7xl font-light tracking-wide mb-3"
+            style={{ color: c.pink }}
+          >
+            Coming Soon
+          </h2>
+
+          <div className="w-12 h-px my-6" style={{ backgroundColor: `${c.brown}40` }} />
+
+          <p
+            className="text-xs md:text-sm tracking-[0.25em] uppercase font-light mb-2"
+            style={{ color: c.brown }}
+          >
+            83 Looks in progress
+          </p>
+
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase font-light mt-8"
+            style={{ color: c.text, opacity: 0.15 }}
+          >
+            Tap anywhere to close
+          </p>
+        </div>
+      )}
+
       {/* Magazine cover */}
       <div
         onClick={() => setOpened(true)}
@@ -60,28 +105,10 @@ export default function ClosetPage() {
             {dateStr}
           </p>
 
-          {/* Coming Soon overlay */}
-          {opened && (
-            <div
-              className="absolute inset-0 flex flex-col items-center justify-center z-10 animate-fade-in"
-              style={{ backgroundColor: `${c.bg}ee` }}
-            >
-              <p className="font-display text-3xl md:text-4xl font-light tracking-wide" style={{ color: c.pink }}>
-                Coming Soon
-              </p>
-              <div className="w-8 h-px my-4" style={{ backgroundColor: `${c.brown}60` }} />
-              <p className="text-xs tracking-[0.2em] uppercase font-light" style={{ color: c.brown }}>
-                83 Looks in progress
-              </p>
-            </div>
-          )}
-
-          {!opened && (
-            <p className="absolute bottom-9 md:bottom-11 text-[10px] tracking-wider opacity-0 group-hover:opacity-30 transition-opacity duration-500"
-               style={{ color: c.text }}>
-              Click to open
-            </p>
-          )}
+          <p className="absolute bottom-9 md:bottom-11 text-[10px] tracking-wider opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+             style={{ color: c.text }}>
+            Click to open
+          </p>
         </div>
       </div>
 
