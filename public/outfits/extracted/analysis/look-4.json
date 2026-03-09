@@ -1,0 +1,130 @@
+{
+  "id": "look-4",
+  "title": "Cream & Cognac Days",
+  "description": "Two distinct outfit directions — a cottagecore-adjacent white ruffle mini with western fringe bag and cognac boots, and a luxe cream lounge set under a shaggy faux fur coat with a chocolate leather tote — unified by a warm ivory-to-brown palette that reads effortlessly chic for weekend errands, brunch, or a city afternoon in cold weather.",
+  "category": "casual",
+  "occasion": "weekend brunch, city errands, casual daytime, cold-weather outings",
+  "colorPalette": ["#F5EFE0", "#C9A882", "#6B3B28", "#2B2017", "#D4C8B0"],
+  "items": [
+    {
+      "file": "item-0.png",
+      "type": "outerwear",
+      "description": "Cream shaggy faux fur cropped jacket with wide lapels",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-1.png",
+      "type": "jewelry",
+      "description": "Gold-tone square-face Bering dress watch with bracelet strap",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-2.png",
+      "type": "jewelry",
+      "description": "Gold chunky thick hoop earrings, small diameter",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-3.jpg",
+      "type": "decorative",
+      "description": "Dark chalkboard texture background panel (rotation 90, slide backdrop element)",
+      "confidence": 0.92
+    },
+    {
+      "file": "item-4.png",
+      "type": "reference_photo",
+      "description": "Blonde woman seated wearing cream fur coat, ivory knit set, and dark bag — editorial lifestyle photo",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-5.png",
+      "type": "top",
+      "description": "White/ivory long-sleeve fitted boat-neck sweater top, shown on model",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-6.png",
+      "type": "accessory",
+      "description": "Brown tortoiseshell large oval sunglasses (Tory Burch), two-pair product shot",
+      "confidence": 0.96
+    },
+    {
+      "file": "item-7.png",
+      "type": "bottom",
+      "description": "White wide-leg drawstring lounge trousers in knit fabric",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-8.png",
+      "type": "bag",
+      "description": "Large brown distressed leather slouchy shoulder tote bag",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-9.png",
+      "type": "shoes",
+      "description": "Dark chocolate brown knee-high leather boots with flared block heel",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-10.png",
+      "type": "decorative",
+      "description": "Film strip / polaroid-style photo frame border, empty (decorative layout element)",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-11.png",
+      "type": "decorative",
+      "description": "Tiny near-blank square icon (44x47px), likely a layout artifact",
+      "confidence": 0.9
+    },
+    {
+      "file": "item-12.png",
+      "type": "dress",
+      "description": "White strapless ruffled tiered mini dress, product shot on white background",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-13.png",
+      "type": "accessory",
+      "description": "Brown slim oval/cat-eye sunglasses with translucent frames",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-14.png",
+      "type": "bag",
+      "description": "Tan western-style hobo bag with fringe, silver studs, and decorative buckle",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-15.png",
+      "type": "jewelry",
+      "description": "Gold large thin hoop earrings, classic round style",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-16.png",
+      "type": "jewelry",
+      "description": "Gold-tone Timex oval-face watch with expansion bracelet band",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-17.png",
+      "type": "accessory",
+      "description": "White satin bow hair barrette/clip with long ribbon tails",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-18.png",
+      "type": "accessory",
+      "description": "Ivory ribbed knit over-the-knee socks",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-19.png",
+      "type": "shoes",
+      "description": "Cognac tan mid-calf leather pull-on boots with stacked block heel and stitched seam detail",
+      "confidence": 0.97
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "id": "look-10",
+  "title": "Autumn Layers, Two Ways",
+  "description": "Two distinctly autumnal directions united by warm brown tones: the left pairs a brown herringbone belted blazer with a black button-down shirt, mocha leggings, and black knee-high block-heel boots alongside a distressed brown leather tote — refined and office-ready; the right pivots softer with a blush ribbed V-neck sweater over a tweed bow-tie mini skirt, cream ribbed socks, and tan knee-high boots with a camel drawstring tote — a feminine academic look. Gold jewelry and leather gloves bridge both directions.",
+  "category": "casual",
+  "occasion": "weekend outing, casual office, autumn city walk",
+  "colorPalette": ["#7B5C3E", "#1A1A1A", "#C8A882", "#E8D5CC", "#5C4A3A"],
+  "items": [
+    {
+      "file": "item-0.jpg",
+      "type": "decorative",
+      "description": "Chalkboard texture background panel (slide backdrop)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-1.png",
+      "type": "reference_photo",
+      "description": "Editorial cut-out of a blonde woman wearing a pink fluffy oversized sweater, grey plaid mini skirt, knee-high tan boots, and carrying shopping bags — full styled look on white background used as outfit direction reference",
+      "confidence": 0.90
+    },
+    {
+      "file": "item-2.png",
+      "type": "outerwear",
+      "description": "Brown herringbone tweed single-breasted blazer with dark brown leather belt at waist and front flap pockets — product shot on white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-3.png",
+      "type": "decorative",
+      "description": "Film strip / analog photo frame overlay (imageHash 5e1cd7a5e8f8) — decorative collage element",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-4.png",
+      "type": "top",
+      "description": "Black 3/4-sleeve fitted button-down shirt with V-neck collar — product shot on model, white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-5.png",
+      "type": "accessory",
+      "description": "Dark chocolate brown leather gloves — classic wrist-length with minimal stitching detail",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-6.png",
+      "type": "jewelry",
+      "description": "Chunky gold puffed hoop earrings — thick tubular C-shape hoops, stud back",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-7.png",
+      "type": "bottom",
+      "description": "Mocha/chocolate brown high-waist form-fitting leggings — product shot on white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-8.png",
+      "type": "reference_photo",
+      "description": "Mirror selfie of a blonde woman wearing a grey fitted jacket with brown fur cuffs, dark leggings, knee-high black leather boots, and carrying a brown clutch — real-world outfit inspiration",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-9.png",
+      "type": "bag",
+      "description": "Large oversized distressed dark brown leather tote bag — unstructured with double shoulder straps",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-10.png",
+      "type": "shoes",
+      "description": "Black knee-high boot with mixed leather and stretch panel shaft and a block heel (~5cm) — product shot on white background",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-11.png",
+      "type": "bottom",
+      "description": "Olive/khaki tweed pleated mini skirt with satin ribbon bow tie at waistband — slightly rotated (4.71°) in the collage layout",
+      "confidence": 0.96
+    },
+    {
+      "file": "item-12.png",
+      "type": "top",
+      "description": "Blush pink ribbed V-neck long-sleeve fitted sweater — fine-knit, shown laid flat on white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-13.png",
+      "type": "accessory",
+      "description": "Cream/blush ribbed knit crew socks — worn under boots for visible sock styling",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-14.png",
+      "type": "jewelry",
+      "description": "Gold cursive 'M' initial pendant necklace on a delicate chain (duplicate of look-9/item-12, imageHash 6ea67885d579 — same asset used across looks)",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-15.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings (recurring accessory, imageHash 4c5dd7d41f25)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-16.png",
+      "type": "bag",
+      "description": "Camel/tan suede-look oversized drawstring tote bag — unstructured with long shoulder straps and center cinch detail",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-17.png",
+      "type": "shoes",
+      "description": "Tan cognac leather knee-high boot with a stacked block heel (~5cm) and round toe — product shot on white background (same asset as look-9/item-6, imageHash 3f92a605425d)",
+      "confidence": 0.98
+    }
+  ]
+}
