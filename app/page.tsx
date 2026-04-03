@@ -207,11 +207,8 @@ export default function HomePage() {
                 <p className="text-base leading-relaxed font-light mb-4" style={{ color: colors.warmBrown }}>
                   Final-year BA Political Science, <a href="https://academic-calendar.wlu.ca/program.php?cal=1&d=3094&p=7042&s=1151&y=92" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity" style={{ color: colors.plum }}>Legal Studies Specialization</a>. Preparing for LSAT.
                 </p>
-                <p className="text-base leading-relaxed font-light italic mb-6" style={{ opacity: 0.7 }}>
-                  Working across legal analysis, sales, marketing, and events. Drawn to problems that need solving and work that spans disciplines. Passionate about building authentic, valuable connections and preparing for the LSAT while building cross-functional skills.
-                </p>
                 <p className="text-base leading-relaxed font-light mb-6" style={{ opacity: 0.7 }}>
-                  What began as a passion project has become one of my most practical and consistently used personal tools. My outfit board is an ongoing creative outlet with endless possibility within a defined, intentional, and timelessly fashionable wardrobe.
+                  Working across legal analysis, sales, marketing, and events. Drawn to problems that need solving and work that spans disciplines. Passionate about building authentic, valuable connections and preparing for the LSAT while building cross-functional skills.
                 </p>
                 <p className="text-sm font-light tracking-wide uppercase mb-3" style={{ color: colors.warmBrown }}>Languages</p>
                 <div className="flex flex-wrap gap-3">
