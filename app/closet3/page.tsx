@@ -173,7 +173,7 @@ export default function Closet3Page() {
             <div className="absolute inset-3 md:inset-4 pointer-events-none" style={{ border: `1px solid ${c.brown}18` }} />
             <p className="text-[9px] tracking-[0.35em] uppercase mb-6" style={{ color: c.brown }}>A Capsule Wardrobe Lookbook</p>
             <h1 className="font-display text-5xl md:text-6xl font-light tracking-tight" style={{ color: c.pink }}>Mel</h1>
-            <h2 className="font-display text-3xl md:text-4xl italic font-light mt-1" style={{ color: c.text }}>Outfit Board</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-light mt-1" style={{ color: c.text }}>Outfit Board</h2>
             <div className="w-10 h-px mt-6 mb-5" style={{ backgroundColor: `${c.brown}40` }} />
             <p className="text-[11px] tracking-[0.25em] uppercase font-light" style={{ color: c.brown }}>
               {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
