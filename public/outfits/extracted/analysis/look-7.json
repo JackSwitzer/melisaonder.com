@@ -1,0 +1,112 @@
+{
+  "id": "look-7",
+  "title": "Equestrian Daydream",
+  "description": "Two looks anchored by ivory and warm brown: look one pairs a horse-print slip dress with sage green knit socks and a black knee-high boot alongside a brown shoulder bag and oval sunglasses for a playful boho-equestrian feel; look two builds a clean all-white outfit with a tie-front top and wide-leg linen trousers finished with a brown baguette bag, gold accessories, and oversized sunglasses — a mirror-selfie reference ties both directions together.",
+  "category": "casual",
+  "occasion": "weekend outing, casual lunch, city stroll",
+  "colorPalette": ["#F5F0E8", "#4A2C1A", "#8B8B6B", "#1A1A1A", "#C9A060"],
+  "items": [
+    {
+      "file": "item-0.jpg",
+      "type": "decorative",
+      "description": "Chalkboard texture background panel (slide backdrop)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-1.png",
+      "type": "bottom",
+      "description": "White/cream wide-leg drawstring linen-blend trousers (Frankies Bikinis), relaxed fit with straight leg, product shot on white background",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-2.png",
+      "type": "shoes",
+      "description": "Dark chocolate brown leather thong sandal with a square toe and slender low spool heel (~5cm), product shot on white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-3.png",
+      "type": "accessory",
+      "description": "Rounded oval-frame sunglasses with translucent brown acetate and brown lenses",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-4.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings (recurring accessory, imageHash 4c5dd7d41f25)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-5.png",
+      "type": "jewelry",
+      "description": "Bering square-face gold watch with gold bracelet (recurring accessory, imageHash 3faf30a0dcf1)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-6.png",
+      "type": "reference_photo",
+      "description": "Personal mirror selfie reference — person wearing a white tie-front long-sleeve top styled with white wide-leg trousers, holding phone, transparent background cutout",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-7.png",
+      "type": "top",
+      "description": "White long-sleeve tie-front top with a deep V-neckline and flared cuffs, product shot on model with white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-8.png",
+      "type": "bag",
+      "description": "Dark brown leather baguette/shoulder bag with a buckle-strap closure and brass hardware, crossbody strap",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-9.png",
+      "type": "decorative",
+      "description": "Film strip / analog photo frame overlay (decorative collage element, imageHash 5e1cd7a5e8f8)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-10.png",
+      "type": "dress",
+      "description": "Cream/ivory horse-graphic spaghetti-strap slip dress with a black-trimmed neckline, product shot on white background",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-11.png",
+      "type": "bag",
+      "description": "Dark brown leather baguette/shoulder bag; duplicate of item-8 (same imageHash 4bf7a250d975), used as second collage placement",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-12.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings; duplicate of item-4 (same imageHash 4c5dd7d41f25), used as second collage placement",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-13.png",
+      "type": "accessory",
+      "description": "Tory Burch oversized tortoiseshell butterfly-frame sunglasses with gradient brown lenses and gold logo hardware",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-14.png",
+      "type": "jewelry",
+      "description": "Timex oval-face gold watch with gold link bracelet (recurring accessory, imageHash bf1da173417e)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-15.png",
+      "type": "accessory",
+      "description": "Sage/olive green ribbed knit crew socks",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-16.png",
+      "type": "shoes",
+      "description": "Black leather knee-high boot with stretch back panel and low block heel (~5cm), product shot on white background",
+      "confidence": 0.99
+    }
+  ]
+}

@@ -221,7 +221,7 @@ const GfDayPage = () => {
           <h2 className="text-4xl font-playfair-display mb-8 text-white">A little something...</h2>
           <button 
             onClick={handleStartExperience}
-            className="bg-pink-500 hover:bg-pink-600 text-white font-geist-sans font-bold py-4 px-10 rounded-lg text-2xl transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75"
+            className="bg-pink-500 hover:bg-pink-600 text-white font-sans font-bold py-4 px-10 rounded-lg text-2xl transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75"
           >
             Click to Begin
           </button>
@@ -299,14 +299,14 @@ const GfDayPage = () => {
             )}
             {scene.buttons && (
               <div className="mt-10 space-x-6">
-                <button 
-                  className="bg-green-500 hover:bg-green-600 text-white font-geist-sans font-bold py-3 px-8 rounded-lg text-xl transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+                <button
+                  className="bg-green-500 hover:bg-green-600 text-white font-sans font-bold py-3 px-8 rounded-lg text-xl transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
                   onClick={handleYesClick}
                 >
                   Yes
                 </button>
-                <button 
-                  className="bg-red-500 hover:bg-red-600 text-white font-geist-sans font-bold py-3 px-8 rounded-lg text-xl transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+                <button
+                  className="bg-red-500 hover:bg-red-600 text-white font-sans font-bold py-3 px-8 rounded-lg text-xl transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
                   onClick={handleNoClick}
                 >
                   No

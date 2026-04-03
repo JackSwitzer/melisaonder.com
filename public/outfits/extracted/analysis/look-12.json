@@ -1,0 +1,148 @@
+{
+  "id": "look-12",
+  "title": "Blush & Burgundy",
+  "description": "Two polished cold-weather directions: one pairs a black Reformation boat-neck top with nude leggings, a camel peacoat, burgundy knit scarf, and cognac tall boots with a wine patent tote for a rich jewel-toned city look; the other builds a soft romantic outfit around a blush pink v-neck sweater, nude micro skirt, and a pale pink trench coat accessorized with the same dark brown heeled boots, a Kate Spade blush tote, and sheer nude tights — both looks illustrated by fashion sketches in the film strip reference frame.",
+  "category": "casual",
+  "occasion": "city errands, lunch date, autumn/winter street style",
+  "colorPalette": ["#6B1F2A", "#C4A882", "#F5E8E0", "#1A1A1A", "#E8D5CC"],
+  "items": [
+    {
+      "file": "item-0.jpg",
+      "type": "decorative",
+      "description": "Chalkboard texture background panel (slide backdrop)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-1.png",
+      "type": "jewelry",
+      "description": "Bering square-face gold-tone watch with white dial and gold link bracelet band",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-2.png",
+      "type": "outerwear",
+      "description": "Blush/dusty pink belted trench coat with notched lapel, buckle cuffs, and double-breasted front, product shot on white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-3.png",
+      "type": "top",
+      "description": "Pale blush pink ribbed v-neck long-sleeve fitted sweater by HUGO, product shot on white background",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-4.png",
+      "type": "reference_photo",
+      "description": "Fashion illustration reference — two women in winter outfits: one in faux-fur vest over pink top with flared jeans and pink bag, the other in brown coat with burgundy scarf, knee-high boots, and pink tote",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-5.png",
+      "type": "outerwear",
+      "description": "Camel/tan double-breasted wool peacoat with notched lapels and front patch pockets, product shot on white background",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-6.png",
+      "type": "top",
+      "description": "Black Reformation fitted long-sleeve boat-neck top in stretch jersey, product shot on white background",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-7.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings, polished finish",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-8.png",
+      "type": "accessory",
+      "description": "Burgundy/wine chunky cable-knit oversized scarf, product shot on white background",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-9.png",
+      "type": "bottom",
+      "description": "Nude/beige seamless high-waist fitted leggings, product shot on white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-10.png",
+      "type": "accessory",
+      "description": "Tortoiseshell oval hair clip / barrette in acetate with speckled cream and brown pattern",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-11.png",
+      "type": "bag",
+      "description": "Burgundy/wine crinkled patent leather structured tote bag with gold hardware O-ring detail and dual top handles",
+      "confidence": 0.98
+    },
+    {
+      "file": "item-12.png",
+      "type": "shoes",
+      "description": "Tan/cognac mid-calf smooth leather boot with rounded toe and stacked block heel (~5cm), product shot on white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-13.png",
+      "type": "decorative",
+      "description": "Film strip / analog photo frame overlay (decorative collage element)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-14.png",
+      "type": "bottom",
+      "description": "White/cream micro mini wrap skirt with white bodysuit/tank visible at waistband, displayed slightly rotated (~354 degrees) as a collage placement",
+      "confidence": 0.82
+    },
+    {
+      "file": "item-15.png",
+      "type": "reference_photo",
+      "description": "Fashion illustration reference — two women in pink-toned outfits: one in plaid coat over pink top with flared jeans, the other in pink double-breasted coat with dark knee-high boots and a pink backpack",
+      "confidence": 0.95
+    },
+    {
+      "file": "item-16.png",
+      "type": "accessory",
+      "description": "Blush/dusty pink ribbed ribbed crew-length socks, product shot on white background",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-17.png",
+      "type": "jewelry",
+      "description": "Large thin gold hoop earrings (duplicate of item-7, used as a second collage placement)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-18.png",
+      "type": "bag",
+      "description": "Pale blush Kate Spade New York structured leather tote with zip top closure, silver hardware, and slim dual handles",
+      "confidence": 0.99
+    },
+    {
+      "file": "item-19.png",
+      "type": "accessory",
+      "description": "Brown oval cat-eye optical frames / reading glasses with thin plastic frame",
+      "confidence": 0.96
+    },
+    {
+      "file": "item-20.png",
+      "type": "jewelry",
+      "description": "Bering square-face gold-tone watch with white dial and gold link bracelet band (duplicate of item-1, used as a second collage placement)",
+      "confidence": 1.0
+    },
+    {
+      "file": "item-21.png",
+      "type": "accessory",
+      "description": "Secret All Nude sheer pantyhose/tights shown as two product packaging boxes, nude/beige tone",
+      "confidence": 0.97
+    },
+    {
+      "file": "item-22.png",
+      "type": "shoes",
+      "description": "Dark chocolate brown knee-high smooth leather boot with pointed toe and flared block heel (~8cm), product shot on white background",
+      "confidence": 0.99
+    }
+  ]
+}
