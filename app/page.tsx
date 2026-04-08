@@ -392,21 +392,47 @@ export default function HomePage() {
                 {/* Other Projects */}
                 <h3 className="font-serif-display text-xl font-light mb-4" style={{ color: colors.nearBlack }}>Personal</h3>
                 <div className="space-y-3">
-                  <a
-                    href="https://recreation.laurierathletics.com/sports/2021/7/27/dance-class-descriptions.aspx"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block p-5 transition-colors"
-                    style={{ backgroundColor: colors.creamAlt }}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-serif-display text-lg font-light mb-1" style={{ color: colors.nearBlack }}>Laurier Rec Dance</h4>
-                        <p className="text-sm font-light" style={{ color: colors.warmBrown }}>Dance</p>
-                      </div>
-                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: colors.softPink }} />
+                  <div className="p-5" style={{ backgroundColor: colors.creamAlt }}>
+                    <h4 className="font-serif-display text-lg font-light mb-1" style={{ color: colors.nearBlack }}>Laurier Rec Dance</h4>
+                    <p className="text-sm font-light mb-4" style={{ color: colors.warmBrown }}>Dance</p>
+                    <div className="grid grid-cols-3 gap-3">
+                      {[
+                        { src: '/dance/winter-2026-jazz-funk.mp4', label: 'Jazz Funk' },
+                        { src: '/dance/winter-2026-latin.mp4', label: 'Latin' },
+                        { src: '/dance/fall-2025.mp4', label: 'Jazz Funk' },
+                      ].map((v) => (
+                        <div key={v.src} className="cursor-pointer" onClick={(e) => {
+                          const video = e.currentTarget.querySelector('video');
+                          if (video) {
+                            const onFsChange = () => {
+                              if (!document.fullscreenElement) {
+                                video.pause();
+                                video.currentTime = 0;
+                                video.muted = true;
+                                video.removeEventListener('fullscreenchange', onFsChange);
+                              }
+                            };
+                            video.addEventListener('fullscreenchange', onFsChange);
+                            video.muted = false;
+                            video.controls = true;
+                            video.requestFullscreen();
+                            video.play();
+                          }
+                        }}>
+                          <video
+                            src={v.src}
+                            muted
+                            playsInline
+                            preload="metadata"
+                            className="w-full aspect-video object-cover rounded"
+                            onMouseEnter={(e) => { e.currentTarget.muted = true; e.currentTarget.play(); }}
+                            onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
+                          />
+                          <p className="text-xs font-light mt-1 text-center" style={{ color: colors.warmBrown }}>{v.label}</p>
+                        </div>
+                      ))}
                     </div>
-                  </a>
+                  </div>
                   <OutfitBoardCard />
                   <div className="p-5" style={{ backgroundColor: colors.creamAlt }}>
                     <div className="flex items-center justify-between">
