@@ -134,7 +134,15 @@ const BDay2026Page = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'] as const;
+    /* Only real user activation unlocks audio, so listen for the events that
+       count (a scroll on its own does not) and take the first one. */
+    const events = [
+      'pointerdown',
+      'touchstart',
+      'touchend',
+      'click',
+      'keydown',
+    ] as const;
 
     const stopListening = () => {
       events.forEach((event) => window.removeEventListener(event, start));
@@ -179,7 +187,13 @@ const BDay2026Page = () => {
         }
       `}</style>
 
-      <audio ref={audioRef} src="/bday2026/sunday-morning.mp3" loop preload="auto" />
+      <audio
+        ref={audioRef}
+        src="/bday2026/sunday-morning.mp3"
+        autoPlay
+        loop
+        preload="auto"
+      />
 
       <Motes />
 
