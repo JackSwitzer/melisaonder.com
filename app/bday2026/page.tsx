@@ -65,6 +65,22 @@ const Motes = () => {
   );
 };
 
+/* ============================ Music ============================ */
+
+const SpeakerOnIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5" aria-hidden>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M11 5 6.5 8.5H3.5v7h3L11 19V5Z" />
+    <path strokeLinecap="round" d="M15 9.5a3.5 3.5 0 0 1 0 5M17.8 7a7 7 0 0 1 0 10" />
+  </svg>
+);
+
+const SpeakerOffIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5" aria-hidden>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M11 5 6.5 8.5H3.5v7h3L11 19V5Z" />
+    <path strokeLinecap="round" d="m15.5 10 4 4m0-4-4 4" />
+  </svg>
+);
+
 /* ============================ Scenes ============================ */
 
 /** Text beats woven between the photos. */
@@ -155,6 +171,20 @@ const PhotoCard = ({
 
 const BDay2026Page = () => {
   const [opened, setOpened] = useState(false);
+  const [muted, setMuted] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const open = () => {
+    setOpened(true);
+    audioRef.current?.play().catch(() => {});
+  };
+
+  const toggleMute = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.muted = !audio.muted;
+    setMuted(audio.muted);
+  };
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-amber-50 via-orange-50 to-rose-50 text-stone-800 relative overflow-x-hidden">
@@ -182,6 +212,8 @@ const BDay2026Page = () => {
         .animate-sunRise { animation: sunRise 1.6s ease-out both; }
       `}</style>
 
+      <audio ref={audioRef} src="/bday2026/sunday-morning.mp3" loop preload="auto" />
+
       {/* ---------- Opening: the sunshine ---------- */}
       {!opened && (
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-b from-amber-100 via-orange-100 to-rose-100 px-6">
@@ -191,7 +223,7 @@ const BDay2026Page = () => {
             Happy birthday, my love
           </h1>
           <button
-            onClick={() => setOpened(true)}
+            onClick={open}
             className="mt-10 rounded-full bg-amber-400 px-8 py-3 font-body text-lg text-stone-900 shadow-lg shadow-amber-500/30 transition-transform duration-300 hover:scale-105"
           >
             let the sun in
@@ -203,6 +235,14 @@ const BDay2026Page = () => {
       {opened && (
         <>
           <Motes />
+
+          <button
+            onClick={toggleMute}
+            aria-label={muted ? 'Unmute music' : 'Mute music'}
+            className="fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-amber-300/60 bg-white/70 text-stone-600 shadow-lg shadow-amber-900/10 backdrop-blur-sm transition-colors hover:text-stone-900"
+          >
+            {muted ? <SpeakerOffIcon /> : <SpeakerOnIcon />}
+          </button>
 
           <main className="relative z-10 flex flex-col items-center pb-32">
             <div className="pt-20 pb-4 animate-sunRise">
