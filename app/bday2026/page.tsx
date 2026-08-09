@@ -233,7 +233,8 @@ const BDay2026Page = () => {
                 <div className="mx-auto my-7 h-px w-16 bg-amber-400/70" />
                 <p className="font-display text-xl md:text-2xl leading-relaxed text-stone-700">
                   you are so beautiful and loving and fantastic and funny and
-                  cute and adorable and artistic and so, so much more
+                  cute and adorable and artistic and fierce and so, so much
+                  more
                 </p>
                 <p className="mt-8 text-3xl" aria-hidden>
                   &#9728;&#65039; &#10084;&#65039;
