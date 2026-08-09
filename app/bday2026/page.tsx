@@ -38,29 +38,39 @@ const Sun = ({ small = false }: { small?: boolean }) => (
 );
 
 /* Slow-drifting warm motes, like dust in morning light */
+type Mote = { left: number; size: number; duration: number; delay: number };
+
 const Motes = () => {
-  const motes = Array.from({ length: 18 }).map((_, i) => {
-    const left = Math.random() * 100;
-    const size = Math.random() * 6 + 3;
-    const duration = Math.random() * 10 + 12;
-    const delay = Math.random() * 10;
-    return (
-      <div
-        key={i}
-        className="absolute bottom-0 rounded-full bg-amber-200/60"
-        style={{
-          left: `${left}%`,
-          width: size,
-          height: size,
-          animation: `moteRise ${duration}s linear ${delay}s infinite`,
-        }}
-      />
+  // Generated after mount, never during render: the random values differ
+  // between the server pass and the client pass, which React flags as a
+  // hydration mismatch. Rendering nothing on the server sidesteps it.
+  const [motes, setMotes] = useState<Mote[]>([]);
+
+  useEffect(() => {
+    setMotes(
+      Array.from({ length: 18 }, () => ({
+        left: Math.random() * 100,
+        size: Math.random() * 6 + 3,
+        duration: Math.random() * 10 + 12,
+        delay: Math.random() * 10,
+      }))
     );
-  });
+  }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {motes}
+      {motes.map((mote, i) => (
+        <div
+          key={i}
+          className="absolute bottom-0 rounded-full bg-amber-200/60"
+          style={{
+            left: `${mote.left}%`,
+            width: mote.size,
+            height: mote.size,
+            animation: `moteRise ${mote.duration}s linear ${mote.delay}s infinite`,
+          }}
+        />
+      ))}
     </div>
   );
 };
