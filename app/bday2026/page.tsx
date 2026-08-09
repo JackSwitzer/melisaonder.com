@@ -2,40 +2,10 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { PHOTOS } from './photos';
+import { PHOTOS, type Photo } from './photos';
 
-/* ============================ Sunshine ============================ */
-
-const Sun = ({ small = false }: { small?: boolean }) => (
-  <div
-    className={`relative ${small ? 'w-20 h-20' : 'w-44 h-44 md:w-56 md:h-56'}`}
-    aria-hidden
-  >
-    {/* rays */}
-    <div className="absolute inset-0 animate-sunSpin">
-      {Array.from({ length: 12 }).map((_, i) => (
-        <div
-          key={i}
-          className="absolute left-1/2 top-1/2 origin-center"
-          style={{ transform: `rotate(${i * 30}deg)` }}
-        >
-          <div
-            className="rounded-full bg-amber-300/70"
-            style={{
-              width: small ? '3px' : '5px',
-              height: small ? '14px' : '30px',
-              transform: `translate(-50%, ${small ? '-46px' : '-104px'})`,
-            }}
-          />
-        </div>
-      ))}
-    </div>
-    {/* glow */}
-    <div className="absolute inset-2 rounded-full bg-amber-200/40 blur-2xl animate-sunPulse" />
-    {/* body */}
-    <div className="absolute inset-4 rounded-full bg-gradient-to-b from-amber-200 to-amber-400 shadow-[0_0_60px_20px_rgba(251,191,36,0.35)]" />
-  </div>
-);
+/** The sunset shot from the album, used as the backdrop behind the words. */
+const HERO_PHOTO = '/bday2026/hero-olive-grove.jpg';
 
 /* Slow-drifting warm motes, like dust in morning light */
 const Motes = () => {
@@ -83,16 +53,6 @@ const SpeakerOffIcon = () => (
 
 /* ============================ Scenes ============================ */
 
-/** Text beats woven between the photos. */
-const OPENING_LINES = [
-  'Good morning, sunshine.',
-  'It is your day.',
-];
-
-const CLOSING_LINES = [
-  'So excited for another year of loving you ❤️',
-];
-
 const Reveal = ({
   children,
   className = '',
@@ -129,55 +89,68 @@ const Reveal = ({
   );
 };
 
-const Line = ({ children }: { children: React.ReactNode }) => (
-  <Reveal className="w-full max-w-2xl px-6 py-20 md:py-28 text-center">
-    <p className="font-display text-3xl md:text-5xl leading-snug text-stone-800">
-      {children}
-    </p>
+/** Quiet little sunbreak that sits between the photos. */
+const Divider = () => (
+  <Reveal className="flex items-center justify-center gap-3 py-14 md:py-20">
+    <span className="h-px w-10 bg-amber-300/70" aria-hidden />
+    <span className="h-1.5 w-1.5 rounded-full bg-amber-400/80" aria-hidden />
+    <span className="h-px w-10 bg-amber-300/70" aria-hidden />
   </Reveal>
 );
 
 const PhotoCard = ({
   src,
   alt,
-  caption,
+  landscape,
   priority,
-}: {
-  src: string;
-  alt: string;
-  caption?: string;
-  priority?: boolean;
-}) => (
-  <Reveal className="w-full max-w-md px-6">
-    <div className="relative w-full aspect-[3/4] overflow-hidden rounded-2xl shadow-xl shadow-amber-900/10 bg-amber-100">
+}: Photo & { priority?: boolean }) => (
+  <Reveal className={`w-full px-6 ${landscape ? 'max-w-2xl' : 'max-w-md'}`}>
+    <div
+      className={`relative w-full overflow-hidden rounded-2xl shadow-xl shadow-amber-900/10 bg-amber-100 ${
+        landscape ? 'aspect-[4/3]' : 'aspect-[3/4]'
+      }`}
+    >
       <Image
         src={src}
         alt={alt}
         fill
-        sizes="(max-width: 768px) 90vw, 28rem"
+        sizes={landscape ? '(max-width: 768px) 90vw, 42rem' : '(max-width: 768px) 90vw, 28rem'}
         className="object-cover"
         priority={priority}
       />
     </div>
-    {caption && (
-      <p className="mt-4 text-center font-display italic text-lg md:text-xl text-stone-600">
-        {caption}
-      </p>
-    )}
   </Reveal>
 );
 
 /* ============================ Page ============================ */
 
 const BDay2026Page = () => {
-  const [opened, setOpened] = useState(false);
   const [muted, setMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const open = () => {
-    setOpened(true);
-    audioRef.current?.play().catch(() => {});
-  };
+  /* Browsers refuse to start audio before the visitor has interacted with the
+     page, so try on load and otherwise catch the first gesture. */
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'] as const;
+
+    const stopListening = () => {
+      events.forEach((event) => window.removeEventListener(event, start));
+    };
+
+    function start() {
+      audio!.play().then(stopListening).catch(() => {});
+    }
+
+    start();
+    events.forEach((event) =>
+      window.addEventListener(event, start, { passive: true })
+    );
+
+    return stopListening;
+  }, []);
 
   const toggleMute = () => {
     const audio = audioRef.current;
@@ -186,16 +159,17 @@ const BDay2026Page = () => {
     setMuted(audio.muted);
   };
 
+  const scrollPhotos = PHOTOS.filter((photo) => photo.src !== HERO_PHOTO);
+
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-amber-50 via-orange-50 to-rose-50 text-stone-800 relative overflow-x-hidden">
       <style jsx global>{`
-        @keyframes sunSpin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @keyframes sunPulse {
-          0%, 100% { transform: scale(1); opacity: 0.5; }
-          50% { transform: scale(1.12); opacity: 0.8; }
+        /* White type over the photo, warmed and anchored so it reads against
+           both the bright sky and the treeline. */
+        .on-photo {
+          text-shadow: 0 2px 10px rgba(58, 38, 18, 0.55),
+            0 1px 3px rgba(58, 38, 18, 0.7),
+            0 0 44px rgba(58, 38, 18, 0.35);
         }
         @keyframes moteRise {
           0% { transform: translateY(0) translateX(0); opacity: 0; }
@@ -203,87 +177,60 @@ const BDay2026Page = () => {
           90% { opacity: 0.7; }
           100% { transform: translateY(-105vh) translateX(20px); opacity: 0; }
         }
-        @keyframes sunRise {
-          from { transform: translateY(30vh) scale(1.3); opacity: 0.4; }
-          to { transform: translateY(0) scale(1); opacity: 1; }
-        }
-        .animate-sunSpin { animation: sunSpin 60s linear infinite; }
-        .animate-sunPulse { animation: sunPulse 5s ease-in-out infinite; }
-        .animate-sunRise { animation: sunRise 1.6s ease-out both; }
       `}</style>
 
       <audio ref={audioRef} src="/bday2026/sunday-morning.mp3" loop preload="auto" />
 
-      {/* ---------- Opening: the sunshine ---------- */}
-      {!opened && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-b from-amber-100 via-orange-100 to-rose-100 px-6">
-          <Motes />
-          <Sun />
-          <h1 className="mt-10 font-display text-4xl md:text-6xl text-stone-800 text-center">
+      <Motes />
+
+      <button
+        onClick={toggleMute}
+        aria-label={muted ? 'Unmute music' : 'Mute music'}
+        className="fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-amber-300/60 bg-white/70 text-stone-600 shadow-lg shadow-amber-900/10 backdrop-blur-sm transition-colors hover:text-stone-900"
+      >
+        {muted ? <SpeakerOffIcon /> : <SpeakerOnIcon />}
+      </button>
+
+      <main className="relative z-10 flex flex-col items-center pb-32">
+        {/* ---------- The words, over the sunset ---------- */}
+        <section className="relative w-full flex flex-col items-center overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <Image
+              src={HERO_PHOTO}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+            {/* Warm shade over the photo so the white type reads the whole way
+                down. The photo keeps its colour to a clean bottom edge. */}
+            <div className="absolute inset-0 bg-gradient-to-b from-stone-900/35 via-stone-900/25 to-stone-900/40" />
+          </div>
+
+          <h1 className="on-photo px-6 pt-28 md:pt-36 pb-16 md:pb-20 text-center font-display text-4xl md:text-6xl text-white">
             Happy birthday, my love
           </h1>
-          <button
-            onClick={open}
-            className="mt-10 rounded-full bg-amber-400 px-8 py-3 font-body text-lg text-stone-900 shadow-lg shadow-amber-500/30 transition-transform duration-300 hover:scale-105"
-          >
-            let the sun in
-          </button>
-        </div>
-      )}
 
-      {/* ---------- The letter ---------- */}
-      {opened && (
-        <>
-          <Motes />
+          <Reveal className="on-photo w-full max-w-2xl px-6 pb-28 md:pb-36 text-center">
+            <p className="font-display text-3xl md:text-5xl leading-snug text-white">
+              So excited for another year of loving you &#10084;&#65039;
+            </p>
+            <p className="mt-12 font-display text-xl md:text-2xl leading-relaxed text-white/95">
+              you are so beautiful and loving and fantastic and funny and cute
+              and adorable and artistic and fierce and so, so much more
+            </p>
+          </Reveal>
+        </section>
 
-          <button
-            onClick={toggleMute}
-            aria-label={muted ? 'Unmute music' : 'Mute music'}
-            className="fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-amber-300/60 bg-white/70 text-stone-600 shadow-lg shadow-amber-900/10 backdrop-blur-sm transition-colors hover:text-stone-900"
-          >
-            {muted ? <SpeakerOffIcon /> : <SpeakerOnIcon />}
-          </button>
-
-          <main className="relative z-10 flex flex-col items-center pb-32">
-            <div className="pt-20 pb-4 animate-sunRise">
-              <Sun small />
-            </div>
-
-            {OPENING_LINES.map((line) => (
-              <Line key={line}>{line}</Line>
-            ))}
-
-            {PHOTOS.map((photo, i) => (
-              <React.Fragment key={photo.src}>
-                <PhotoCard {...photo} priority={i === 0} />
-                <div className="h-16 md:h-24" />
-              </React.Fragment>
-            ))}
-
-            {CLOSING_LINES.map((line) => (
-              <Line key={line}>{line}</Line>
-            ))}
-
-            {/* Final card */}
-            <Reveal className="w-full max-w-2xl px-6 pt-8">
-              <div className="rounded-2xl border border-amber-300/60 bg-white/60 backdrop-blur-sm p-8 md:p-12 text-center shadow-xl shadow-amber-900/5">
-                <p className="font-display text-3xl md:text-5xl text-stone-800">
-                  Happy birthday my love
-                </p>
-                <div className="mx-auto my-7 h-px w-16 bg-amber-400/70" />
-                <p className="font-display text-xl md:text-2xl leading-relaxed text-stone-700">
-                  you are so beautiful and loving and fantastic and funny and
-                  cute and adorable and artistic and fierce and so, so much
-                  more
-                </p>
-                <p className="mt-8 text-3xl" aria-hidden>
-                  &#9728;&#65039; &#10084;&#65039;
-                </p>
-              </div>
-            </Reveal>
-          </main>
-        </>
-      )}
+        {/* ---------- Then the photos ---------- */}
+        {scrollPhotos.map((photo, i) => (
+          <React.Fragment key={photo.src}>
+            <Divider />
+            <PhotoCard {...photo} priority={i === 0} />
+          </React.Fragment>
+        ))}
+      </main>
     </div>
   );
 };

@@ -7,9 +7,13 @@ Drop the "2032" album into public/bday2026/ and run:
 
 Existing captions are preserved by filename, so you can re-run this after
 adding more photos without losing the ones you already wrote.
+
+Photos are listed in filename order, so the numeric prefixes (01-, 02-, ...)
+control the order they appear on the page.
 """
 
 import re
+import struct
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -25,9 +29,10 @@ HEADER = '''// Photos for /bday2026.
 
 export type Photo = {
   src: string;
+  /** Not shown on the page; this is the screen-reader description. */
   alt: string;
-  /** Little line shown under the photo. Leave undefined for no caption. */
-  caption?: string;
+  /** Wider-than-tall photos get a landscape frame instead of the 3:4 one. */
+  landscape?: boolean;
 };
 
 export const USING_PLACEHOLDERS = false;
@@ -36,16 +41,63 @@ export const PHOTOS: Photo[] = [
 '''
 
 
-def existing_captions() -> dict[str, str]:
+def image_size(path: Path) -> tuple[int, int] | None:
+    """Width/height straight from the file header, so this stays dependency-free."""
+    data = path.read_bytes()
+
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return struct.unpack(">II", data[16:24])
+
+    if data[:2] == b"\xff\xd8":  # JPEG: walk the markers looking for a SOF
+        i = 2
+        while i + 9 < len(data):
+            if data[i] != 0xFF:
+                i += 1
+                continue
+            marker = data[i + 1]
+            # SOFn carries the dimensions; skip the table and restart markers.
+            if 0xC0 <= marker <= 0xCF and marker not in (0xC4, 0xC8, 0xCC):
+                height, width = struct.unpack(">HH", data[i + 5 : i + 9])
+                return width, height
+            if marker in (0xD8, 0x01) or 0xD0 <= marker <= 0xD7:
+                i += 2
+                continue
+            (segment_len,) = struct.unpack(">H", data[i + 2 : i + 4])
+            i += 2 + segment_len
+        return None
+
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        chunk = data[12:16]
+        if chunk == b"VP8 ":
+            width, height = struct.unpack("<HH", data[26:30])
+            return width & 0x3FFF, height & 0x3FFF
+        if chunk == b"VP8L":
+            (bits,) = struct.unpack("<I", data[21:25])
+            return (bits & 0x3FFF) + 1, ((bits >> 14) & 0x3FFF) + 1
+        if chunk == b"VP8X":
+            width = int.from_bytes(data[24:27], "little") + 1
+            height = int.from_bytes(data[27:30], "little") + 1
+            return width, height
+
+    return None
+
+
+def existing_alts() -> dict[str, str]:
+    """The alt text already in the manifest, keyed by filename.
+
+    Read one entry at a time so a photo without alt text cannot borrow the
+    next photo's.
+    """
     if not MANIFEST.exists():
         return {}
-    text = MANIFEST.read_text()
-    captions: dict[str, str] = {}
-    for src, caption in re.findall(
-        r"src:\s*'([^']+)'.*?caption:\s*'((?:[^'\\]|\\.)*)'", text, re.S
-    ):
-        captions[Path(src).name] = caption
-    return captions
+
+    alts: dict[str, str] = {}
+    for block in re.findall(r"\{([^{}]*)\}", MANIFEST.read_text(), re.S):
+        src = re.search(r"src:\s*'([^']+)'", block)
+        alt = re.search(r"alt:\s*'((?:[^'\\]|\\.)*)'", block)
+        if src and alt:
+            alts[Path(src.group(1)).name] = alt.group(1)
+    return alts
 
 
 def main() -> None:
@@ -59,18 +111,18 @@ def main() -> None:
     if not files:
         raise SystemExit(f"no images found in {PHOTO_DIR}")
 
-    captions = existing_captions()
+    alts = existing_alts()
 
     entries = []
     for f in files:
-        caption = captions.get(f.name)
+        size = image_size(f)
         lines = [
             "  {",
             f"    src: '/bday2026/{f.name}',",
-            "    alt: 'Us',",
+            f"    alt: '{alts.get(f.name, 'Us')}',",
         ]
-        if caption:
-            lines.append(f"    caption: '{caption}',")
+        if size and size[0] > size[1]:
+            lines.append("    landscape: true,")
         lines.append("  },")
         entries.append("\n".join(lines))
 
